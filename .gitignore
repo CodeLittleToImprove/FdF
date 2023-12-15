@@ -1,2 +1,14 @@
 .idea/
 **/*.o
+
+# CMake
+CMakeFiles/
+CMakeCache.txt
+CMakeScripts/
+CMakeSettings.json
+cmake-build-*/
+
+# Build artifacts
+build/
+bin/
+lib/

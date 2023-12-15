@@ -18,7 +18,7 @@ int main(void)
 	void *win_ptr;
 
 	mlx_ptr = mlx_init();
-	win_ptr = mlx_new_window(mlx_ptr, 800, 600, "MiniLibX Test");
+	win_ptr = mlx_new_window(mlx_ptr, 1920, 1080, "MiniLibX Test");
 	(void)win_ptr;  // Silence the "unused variable" warning
 
 	mlx_loop(mlx_ptr);
