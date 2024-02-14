@@ -50,7 +50,8 @@ int	ft_strncmp(const char *s1, const char *s2, size_t n)
 // // 	if (result == 0) {
 // // 	ft_printf("The strings are equal\n");
 // // 	} else if (result < 0) {
-// // 	ft_printf("The first string is lexicographically less than the second\n");
+// // 	ft_printf("The first string is lexicographically
+// // less than the second\n");
 // // 	} else {
 // // 	ft_printf("The first string is lexicographically greater
 // // than the second\n");

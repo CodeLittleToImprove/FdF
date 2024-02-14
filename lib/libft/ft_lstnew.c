@@ -44,7 +44,8 @@ t_list	*ft_lstnew(void *content)
 // 	new_node = ft_lstnew(a);
 // 	if (new_node)
 // 	{
-// 		ft_printf("New node created with content: %d\n", *(int *)new_node->content);
+// 		ft_printf("New node created with content: %d\n",
+// 		*(int *)new_node->content);
 // 		free(new_node);
 // 	}
 // 	else
