@@ -11,5 +11,4 @@ cmake-build-*/
 # Build artifacts
 build/
 bin/
-lib/
 /fdf

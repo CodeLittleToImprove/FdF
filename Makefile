@@ -18,11 +18,12 @@ SRC = src/main.c
 
 OBJ = $(SRC:.c=.o)
 LIBS = -Llib/libft -lft \
+	-Llib/ft_printf -lftprintf \
 	-Llib/mlx_linux -lmlx_Linux $(shell pkg-config --libs x11 xext)
 
 # Compiler and compilation flags
 CC = cc
-CFLAGS = -Wall -Wextra -Werror -g
+CFLAGS = -Wall -Wextra -Werror
 debug: CFLAGS += -g
 
 # ANSI escape codes
@@ -34,6 +35,8 @@ all: $(NAME)
 
 $(NAME): $(OBJ)
 	@make -C lib/libft
+	@make -C lib/ft_printf
+	@make -C lib/mlx_linux
 	@echo "$(BLUE)$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)$(RESET)"
 	@$(CC) $(CFLAGS) -o $(NAME) $(OBJ) $(LIBS)
 
@@ -42,10 +45,12 @@ $(NAME): $(OBJ)
 
 clean:
 	@make clean -C lib/libft
+	@make clean -C lib/ft_printf
 	@rm -f $(OBJ)
 
 fclean: clean
 	@make fclean -C lib/libft
+	@make fclean -C lib/ft_printf
 	@rm -f $(NAME)
 
 re: fclean all
@@ -54,6 +59,7 @@ run:
 	@make re
 	@make clean
 	@./$(NAME)
+
 debug: all
 
 .PHONY: all clean fclean re
