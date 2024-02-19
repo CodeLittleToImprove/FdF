@@ -13,7 +13,9 @@
 NAME = libftprintf.a
 # Name of the compiled program
 
-SRCS = ft_printf.c ft_utils.c
+#SRCS = ft_printf.c ft_utils.c get_next_line/*.c
+SRCS = ft_printf.c ft_utils.c get_next_line/get_next_line.c get_next_line/get_next_line_utils.c \
+get_next_line/get_next_line_bonus.c get_next_line/get_next_line_utils_bonus.c
 # List all .c files to be compiled
 
 OBJS = ${SRCS:.c=.o}
