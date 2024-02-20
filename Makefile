@@ -14,7 +14,9 @@
 NAME = fdf
 
 # Directories and source files
-SRC = src/main.c src/read_file.c
+SRC = src/main.c \
+src/read_file.c \
+src/draw.c
 
 OBJ = $(SRC:.c=.o)
 LIBS = -Llib/libft -lft \
@@ -43,12 +45,14 @@ $(NAME): $(OBJ)
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-release: $(OBJ)
+test: CFLAGS := # Empty CFLAGS for release target
+test: $(OBJ)
 	@make -C lib/libft
 	@make -C lib/ft_printf
 	@make -C lib/mlx_linux
 	@echo "$(BLUE)$(CC) -o $(NAME) $(OBJ) $(LIBS)$(RESET)"
 	@$(CC) -o $(NAME) $(OBJ) $(LIBS)
+
 
 clean:
 	@make clean -C lib/libft

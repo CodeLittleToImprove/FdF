@@ -47,7 +47,11 @@ SRC = ft_memset.c			\
 		ft_putendl_fd.c		\
 		ft_putnbr_fd.c		\
 		ft_count_words.c		\
-		
+		ft_max.c		\
+		ft_min.c		\
+		ft_fabs.c		\
+		ft_abs.c
+
 BSRC = ft_lstnew.c			\
 		ft_lstadd_front.c	\
 		ft_lstsize.c		\

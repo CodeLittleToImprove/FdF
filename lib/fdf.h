@@ -42,6 +42,6 @@ typedef struct s_fdf
 }			fdf;
 
 void	read_map_file(fdf *data, char *file_name);
-
+void	bresenham(float x, float y, float x1, float y1, fdf *data);
 
 #endif

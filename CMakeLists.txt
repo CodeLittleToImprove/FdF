@@ -18,6 +18,7 @@ set_target_properties(mlx_linux PROPERTIES IMPORTED_LOCATION ${CMAKE_SOURCE_DIR}
 add_executable(fdf
         src/main.c
         src/read_file.c
+        src/draw.c
         src/test_minilibx.c
 )
 

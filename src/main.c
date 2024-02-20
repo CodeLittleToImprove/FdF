@@ -12,11 +12,15 @@
 
 #include "../lib/fdf.h"
 
+int	deal_key(int key, void *data)
+{
+	ft_printf("%d", key);
+	return (0);
+}
+
 int	main(int argc, char *argv[])
 {
 	fdf	*data;
-	int	i;
-	int	j;
 
 	data = (fdf *) malloc (sizeof(fdf));
 	if (data == NULL)
@@ -24,29 +28,14 @@ int	main(int argc, char *argv[])
 		printf("Error: Memory allocation failed\n");
 		return (0);
 	}
-//	printf("pre read_map_file call \n");
-//	printf("filename:%s \n ",argv[1]);
+
 	read_map_file(data, argv[1]);
-//	printf("after read_map_file call \n");
-	i = 0;
-//	printf("data->height is: %d\n", data->height);
-//printf("in main \n");
-	while (i < data->height)
-	{
-//		printf("outer while loop i = %d\n", i);
-		j = 0;
-		while (j < data->width)
-		{
-//			printf("inner while loop j = %d\n", j);
-//			printf("z_matrix[%d][%d] = %d \n", i, j, data->z_matrix[i][j]);
-			ft_printf("%d ", data->z_matrix[i][j]);
-			j++;
-		}
-		ft_printf("\n");
-		i++;
-	}
-//	printf("never here");
-//free(data);
+	data->mlx_ptr = mlx_init();
+	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
+	bresenham(10, 10, 600, 300, data);
+	mlx_key_hook(data->win_ptr, deal_key, NULL);
+	mlx_loop(data->mlx_ptr);
 	if (argc == 100)
 		return (-10);
 }
+
