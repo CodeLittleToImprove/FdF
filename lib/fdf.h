@@ -16,12 +16,13 @@
 # include "libft/libft.h"
 # include "ft_printf/ft_printf.h"
 # include "ft_printf/get_next_line/get_next_line.h"
-//# include <mlx.h>
+
 # include "mlx_linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
 # include <fcntl.h>
+# include <math.h>
 
 //typedef struct	s_data {
 //	void	*img;
@@ -42,6 +43,7 @@ typedef struct s_fdf
 }			fdf;
 
 void	read_map_file(fdf *data, char *file_name);
-void	bresenham(float x, float y, float x1, float y1, fdf *data);
+//void	bresenham(float x, float y, float x1, float y1, fdf *data);
+void	bresenham(int x, int y, int x1, int y1, fdf *data);
 
 #endif
