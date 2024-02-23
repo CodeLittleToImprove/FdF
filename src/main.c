@@ -32,8 +32,9 @@ int	main(int argc, char *argv[])
 	read_map_file(data, argv[1]);
 	data->mlx_ptr = mlx_init();
 	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
-	bresenham(10, 10, 600, 300, data);
-//	bresenham(10, 10, 60, 30, data);
+//	bresenham(10, 10, 600, 300, data);
+	data->zoom = 20;
+	draw(data);
 	mlx_key_hook(data->win_ptr, deal_key, NULL);
 	mlx_loop(data->mlx_ptr);
 	if (argc == 100)
