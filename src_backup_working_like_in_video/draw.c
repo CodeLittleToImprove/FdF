@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../lib/fdf.h"
+#include "fdf.h"
 
 //void isometric(float *x, float *y, float z)
 //{

@@ -12,98 +12,139 @@
 
 #include "../lib/fdf.h"
 
-int	get_height(char	*file_name)
+//int	get_height(char	*file_name)
+//{
+//	char	*line;
+//	int		fd;
+//	int		height;
+//
+//	height = 0;
+//	fd = open(file_name, O_RDONLY, 0);
+//	if (fd < 0)
+//	{
+//		perror("file invalid\n");
+//		return (-1);
+//	}
+//	line = get_next_line(fd);
+//	while (line != NULL)
+//	{
+//		height++;
+//		free(line);
+//		line = get_next_line(fd);
+//	}
+//	close(fd);
+//	return (height);
+//}
+//
+//int	get_width(char	*file_name)
+//{
+//	char	*line;
+//	int		fd;
+//	int		width;
+//
+//	width = 0;
+//	fd = open(file_name, O_RDONLY, 0);
+//	if (fd < 0)
+//	{
+//		perror("file invalid\n");
+//		return (-1);
+//	}
+//
+//	line = get_next_line(fd);
+//	if (line == NULL)
+//		return (0);
+//	width = ft_count_words(line, ' ');
+//	free(line);
+//	close(fd);
+//	return (width);
+//}
+//
+//void	fill_matrix(int *z_line, char *line)
+//{
+//	char	**number_matrix;
+//	int		width_cursor;
+//
+//	number_matrix = ft_split(line, ' ');
+//	width_cursor = 0;
+//	while (number_matrix[width_cursor])
+//	{
+//		z_line[width_cursor] = ft_atoi(number_matrix[width_cursor]);
+//		free(number_matrix[width_cursor]);
+//		width_cursor++;
+//	}
+//	free(number_matrix);
+//}
+int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 {
-	char	*line;
-	int		fd;
-	int		height;
+	char	**dots;
+	int		x;
 
-	height = 0;
-	fd = open(file_name, O_RDONLY, 0);
-	if (fd < 0)
+	dots = ft_split(line, ' ');
+	x = 0;
+	while (dots[x])
 	{
-		perror("file invalid\n");
-		return (-1);
+		matrix_of_dots[y][x].z = ft_atoi(dots[x]);
+		matrix_of_dots[y][x].x = x;
+		matrix_of_dots[y][x].y = y;
+		matrix_of_dots[y][x].is_last = 0;
+		free(dots[x++]);
 	}
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		height++;
-		free(line);
-		line = get_next_line(fd);
-	}
-	close(fd);
-	return (height);
-}
-
-int	get_width(char	*file_name)
-{
-	char	*line;
-	int		fd;
-	int		width;
-
-	width = 0;
-	fd = open(file_name, O_RDONLY, 0);
-	if (fd < 0)
-	{
-		perror("file invalid\n");
-		return (-1);
-	}
-
-	line = get_next_line(fd);
-	if (line == NULL)
-		return (0);
-	width = ft_count_words(line, ' ');
+	free(dots);
 	free(line);
-	close(fd);
-	return (width);
+	matrix_of_dots[y][--x].is_last = 1;
+	return (x);
 }
 
-void	fill_matrix(int *z_line, char *line)
+t_dot	**allocate_matrix(char *file_name)
 {
-	char	**number_matrix;
-	int		width_cursor;
-
-	number_matrix = ft_split(line, ' ');
-	width_cursor = 0;
-	while (number_matrix[width_cursor])
-	{
-		z_line[width_cursor] = ft_atoi(number_matrix[width_cursor]);
-		free(number_matrix[width_cursor]);
-		width_cursor++;
-	}
-	free(number_matrix);
-}
-
-void	read_map_file(fdf *data, char *file_name)
-{
+	t_dot	**new;
+	int		x;
+	int		y;
 	int		fd;
 	char	*line;
-	int		current_height;
 
-
-	data->height = get_height(file_name);
-	data->width = get_width(file_name);
-	data->z_matrix = (int **)malloc(sizeof(int *) * (data->height + 1)); // set height of z matrix
-	current_height = 0;
-	while (current_height <= data->height)
-		data->z_matrix[current_height++] = (int *)malloc(sizeof(int) * (data->width + 1)); // set width of z matrix
 	fd = open(file_name, O_RDONLY, 0);
-	if (fd == -1)
-	{
-		perror("Error in reading map file");
-		exit(EXIT_FAILURE);
-	}
-	current_height = 0;
+	if (fd <= 0)
+		ft_error_and_exit("file does not exist");
+	line = get_next_line(fd);
+	x = ft_count_words(line, ' ');
+	free(line);
+	y = 0;
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		fill_matrix(data->z_matrix[current_height], line);
+		y++;
 		free(line);
-		current_height++;
 		line = get_next_line(fd);
 	}
+	printf("x = %d y = %d \n", x, y);
+	new = (t_dot **)malloc(sizeof(t_dot *) * (++y + 1));
+	while (y > 0)
+		new[--y] = (t_dot *)malloc(sizeof(t_dot) * (x + 1));
 	close(fd);
-	data->z_matrix[current_height] = NULL;
+	return (new);
+}
+
+t_dot	**read_map_file(char *file_name) // find memory leak later
+{
+	t_dot	**matrix_of_dots;
+	int		y;
+	int		fd;
+	char	*line;
+
+	matrix_of_dots = allocate_matrix(file_name);
+	fd = open(file_name, O_RDONLY, 0);
+	y = 0;
+	line = get_next_line(fd);
+	while (line != NULL)
+	{
+		get_dots_from_line(line, matrix_of_dots, y++);
+//		free(line);
+		line = get_next_line(fd);
+	}
+//	free(line);
+	matrix_of_dots[y] = NULL;
+	close(fd);
+	return (matrix_of_dots);
 }
 

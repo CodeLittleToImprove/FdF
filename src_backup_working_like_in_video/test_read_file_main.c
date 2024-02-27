@@ -1,5 +1,5 @@
 
-#include "../lib/fdf.h"
+#include "fdf.h"
 
 //int	main(int argc, char *argv[])
 //{

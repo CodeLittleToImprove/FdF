@@ -12,6 +12,21 @@
 
 #include "../lib/fdf.h"
 
+void	set_default(t_dot *param)
+{
+	param->scale = 20;
+	param->z_scale = 1;
+	param->is_isometric = 0;
+	param->angle = 0.523599;
+	param->win_x = 2000;
+	param->win_y = 1000;
+	param->shift_x = param->win_x / 3;
+	param->shift_y = param->win_y / 3;
+	param->mlx_ptr = mlx_init();
+	param->win_ptr =\
+	mlx_new_window(param->mlx_ptr, param->win_x, param->win_y, "FDF");
+}
+
 int	deal_key(int key, void *data)
 {
 	ft_printf("%d", key);
@@ -20,23 +35,20 @@ int	deal_key(int key, void *data)
 
 int	main(int argc, char *argv[])
 {
-	fdf	*data;
+	t_dot	**matrix;
 
-	data = (fdf *) malloc (sizeof(fdf));
-	if (data == NULL)
-	{
-		printf("Error: Memory allocation failed\n");
-		return (0);
-	}
+	if (argc != 2)
+		ft_error_and_exit("wrong numbers of arguments");
 
-	read_map_file(data, argv[1]);
-	data->mlx_ptr = mlx_init();
-	data->win_ptr = mlx_new_window(data->mlx_ptr, 1000, 1000, "FDF");
-//	bresenham(10, 10, 600, 300, data);
-	data->zoom = 20;
-	draw(data);
-	mlx_key_hook(data->win_ptr, deal_key, NULL);
-	mlx_loop(data->mlx_ptr);
+	matrix = read_map_file(argv[1]);
+//	ft_free_array(matrix);
+//	matrix->mlx_ptr = mlx_init();
+//	matrix->win_ptr = mlx_new_window(matrix->mlx_ptr, 1000, 1000, "FDF");
+////	bresenham(10, 10, 600, 300, data);
+//	matrix->zoom = 20;
+//	draw(matrix);
+//	mlx_key_hook(matrix->win_ptr, deal_key, NULL);
+//	mlx_loop(matrix->mlx_ptr);
 	if (argc == 100)
 		return (-10);
 }

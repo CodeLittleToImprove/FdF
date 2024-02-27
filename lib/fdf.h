@@ -1,23 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   example.h                                          :+:      :+:    :+:   */
+/*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: tbui-quo <tbui-quo@student.42wolfsburg.d>  +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/08/22 14:44:37 by tbui-quo          #+#    #+#             */
-/*   Updated: 2023/08/22 14:44:37 by tbui-quo         ###   ########.fr       */
+/*   Created: 2024/02/27 18:05:49 by tbui-quo          #+#    #+#             */
+/*   Updated: 2024/02/27 18:05:49 by tbui-quo         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
 
-# include "libft/libft.h"
-# include "ft_printf/ft_printf.h"
-# include "ft_printf/get_next_line/get_next_line.h"
+# include "../lib/libft/libft.h"
+# include "../lib/ft_printf/ft_printf.h"
+# include "../lib/ft_printf/get_next_line/get_next_line.h"
 
-# include "mlx_linux/mlx.h"
+# include "../lib/mlx_linux/mlx.h"
 # include <stdlib.h>
 # include <unistd.h>
 # include <stdio.h>
@@ -25,6 +25,7 @@
 # include <math.h>
 # include <stdbool.h>
 
+# define MATRIX_TOP_LEFT matrix[0][0]
 //typedef struct	s_data {
 //	void	*img;
 //	char	*addr;
@@ -33,23 +34,33 @@
 //	int		endian;
 //}				t_data;
 
-typedef struct s_fdf
+typedef struct s_dot
 {
-	int	width;
-	int	height;
-	int	**z_matrix;
-	int	zoom;
-	int	color;
+	int			x;
+	int			y;
+	int			z;
+	int			is_last;
 
-	void	*mlx_ptr;
-	void	*win_ptr;
-}			fdf;
+	int			color;
+	int			scale;
+	int			z_scale;
+	int			shift_x;
+	int			shift_y;
+	int			is_isometric;
+	double		angle;
+	int			win_x;
+	int			win_y;
+	void		*mlx_ptr;
+	void		*win_ptr;
+}			t_dot;
 
-void	read_map_file(fdf *data, char *file_name);
+t_dot	**read_map_file(char *file_name);
+t_dot	**allocate_matrix(char *file_name);
 void	isometric(int *x, int *y, int z);
 //void isometric(float *x, float *y, float z);
-//void	bresenham(float x, float y, float x1, float y1, fdf *data);
-void	bresenham(int x, int y, int x1, int y1, fdf *data);
-void	draw(fdf *data);
-
+//void	bresenham(float x, float y, float x1, float y1, t_dot *data);
+void	bresenham(int x, int y, int x1, int y1, t_dot *data);
+void	draw(t_dot *data);
+void	ft_error_and_exit(char *msg);
+void	ft_free_array(char *array[]);
 #endif

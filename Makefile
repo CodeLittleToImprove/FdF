@@ -16,7 +16,8 @@ NAME = fdf
 # Directories and source files
 SRC = src/main.c \
 src/read_file.c \
-src/draw.c
+src/draw.c \
+src/utils.c
 
 OBJ = $(SRC:.c=.o)
 LIBS = -Llib/libft -lft \
@@ -45,7 +46,7 @@ $(NAME): $(OBJ)
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
-test: CFLAGS := # Empty CFLAGS for release target
+test: CFLAGS := -g #Only g flag for valgrind memoryleak test
 test: $(OBJ)
 	@make -C lib/libft
 	@make -C lib/ft_printf
