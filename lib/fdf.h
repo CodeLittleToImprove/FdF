@@ -39,12 +39,15 @@ typedef struct s_fdf
 	int	height;
 	int	**z_matrix;
 	int	zoom;
+	int	color;
 
 	void	*mlx_ptr;
 	void	*win_ptr;
 }			fdf;
 
 void	read_map_file(fdf *data, char *file_name);
+void	isometric(int *x, int *y, int z);
+//void isometric(float *x, float *y, float z);
 //void	bresenham(float x, float y, float x1, float y1, fdf *data);
 void	bresenham(int x, int y, int x1, int y1, fdf *data);
 void	draw(fdf *data);

@@ -23,4 +23,4 @@ add_executable(fdf
 )
 
 # Link the executable with the libft, mlx_linux, X11, and Xext libraries
-target_link_libraries(fdf PRIVATE libft ft_printf mlx_linux -lX11 -lXext)
+target_link_libraries(fdf PRIVATE libft ft_printf mlx_linux -lX11 -lXext m)
