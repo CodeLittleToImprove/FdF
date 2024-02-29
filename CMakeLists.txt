@@ -21,6 +21,8 @@ add_executable(fdf
         src/draw.c
         src/test_minilibx.c
         src/utils.c
+        src/keys_handler.c
+        src/set_param.c
 )
 
 # Link the executable with the libft, mlx_linux, X11, and Xext libraries

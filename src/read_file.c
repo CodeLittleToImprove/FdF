@@ -81,7 +81,7 @@ int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 
 	dots = ft_split(line, ' ');
 	x = 0;
-	while (dots[x])
+	while (dots[x] != NULL)
 	{
 		matrix_of_dots[y][x].z = ft_atoi(dots[x]);
 		matrix_of_dots[y][x].x = x;
@@ -97,7 +97,7 @@ int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 
 t_dot	**allocate_matrix(char *file_name)
 {
-	t_dot	**new;
+	t_dot	**allocated_matrix;
 	int		x;
 	int		y;
 	int		fd;
@@ -117,12 +117,12 @@ t_dot	**allocate_matrix(char *file_name)
 		free(line);
 		line = get_next_line(fd);
 	}
-	printf("x = %d y = %d \n", x, y);
-	new = (t_dot **)malloc(sizeof(t_dot *) * (++y + 1));
+//	printf("x = %d y = %d \n", x, y);
+	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (++y + 1));
 	while (y > 0)
-		new[--y] = (t_dot *)malloc(sizeof(t_dot) * (x + 1));
+		allocated_matrix[--y] = (t_dot *)malloc(sizeof(t_dot) * (x + 1));
 	close(fd);
-	return (new);
+	return (allocated_matrix);
 }
 
 t_dot	**read_map_file(char *file_name) // find memory leak later
@@ -139,6 +139,7 @@ t_dot	**read_map_file(char *file_name) // find memory leak later
 	while (line != NULL)
 	{
 		get_dots_from_line(line, matrix_of_dots, y++);
+//		if (line != NULL)
 //		free(line);
 		line = get_next_line(fd);
 	}

@@ -60,7 +60,9 @@ void	isometric(int *x, int *y, int z);
 //void isometric(float *x, float *y, float z);
 //void	bresenham(float x, float y, float x1, float y1, t_dot *data);
 void	bresenham(int x, int y, int x1, int y1, t_dot *data);
-void	draw(t_dot *data);
+void	draw(t_dot **matrix);
+int		deal_key(int key, t_dot **matrix);
+void	set_param(t_dot *a, t_dot *b, t_dot *param);
 void	ft_error_and_exit(char *msg);
 void	ft_free_array(char *array[]);
 #endif

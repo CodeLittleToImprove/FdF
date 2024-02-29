@@ -219,3 +219,149 @@
 //			y++;
 //		}
 //	}
+int	compare_sign(int a, int b)
+{
+	if (a < b)
+		return (1);
+	else
+		return (-1);
+}
+
+int	calculate_initial_error(int dx, int dy)
+{
+	int	err;
+
+	if (dx > dy)
+		err = dx / 2;
+	else
+		err = -dy / 2;
+	return (err);
+}
+
+void line(t_dot a, t_dot b, t_dot *param) // need to rewrite this , does not show 42 yet, works to draw the raster
+{
+	int	x0;
+	int	y0;
+	int	x1;
+	int	y1;
+	int	dx;
+	int	dy;
+	int	err;
+	int	sx;
+	int	sy;
+	int	e2;
+
+
+	set_param(&a, &b, param);
+	x0 = a.x;
+	y0 = a.y;
+	x1 = b.x;
+	y1 = b.y;
+	dx = abs(x1 - x0);
+	sx = compare_sign(x0, x1);
+	dy = abs(y1 - y0);
+	sy = compare_sign(y0, y1);
+	err = calculate_initial_error(dx, dy);
+
+	while (1)
+	{
+		mlx_pixel_put(param->mlx_ptr, param->win_ptr, x0, y0, 0xffffff);
+		if (x0 == x1 && y0 == y1)
+			break ;
+		e2 = err;
+		if (e2 > -dx)
+		{
+			err -= dy;
+			x0 += sx;
+		}
+		if (e2 < dy)
+		{
+			err += dx;
+			y0 += sy;
+		}
+	}
+}
+
+// Define the draw function
+//void draw(t_dot **matrix)
+//{
+//	int		y;
+//	int		x;
+//
+//	y = 0;
+//
+//
+//	while (matrix[y])
+//	{
+//		x = 0;
+//		while (!matrix[y][x].is_last)
+//		{
+//			line(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+//			x++;
+//		}
+//		if (matrix[y + 1])
+//		{
+//			line(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+//			y++;
+//		}
+//	}
+//}
+
+//float	fmodule(float i)
+//{
+//	return (i < 0) ? -i : i;
+//}
+//
+//void	line(t_dot a, t_dot b, t_dot *param)
+//{
+//	float	step_x;
+//	float	step_y;
+//	float	max;
+//	int		color;
+//
+//	set_param(&a, &b, param);
+//	step_x = b.x - a.x;
+//	step_y = b.y - a.y;
+//	max = ft_max(fmodule(step_x), fmodule(step_y));
+//	step_x /= max;
+//	step_y /= max;
+//	color = (b.z || a.z) ? 0xfc0345 : 0xBBFAFF;
+//	color = (b.z != a.z) ? 0xfc031c : color;
+//	while ((int)(a.x - b.x) || (int)(a.y - b.y))
+//	{
+//		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y, color);
+//		a.x += step_x;
+//		a.y += step_y;
+//		if (a.x > param->win_x || a.y > param->win_y || a.y < 0 || a.x < 0)
+//			break ;
+//	}
+//}
+
+void	draw(t_dot **matrix)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (matrix[y] != NULL)
+	{
+		x = 0;
+		while (!matrix[y][x].is_last)
+		{
+			// Draw line to the point directly below (if it exists)
+			if (matrix[y + 1])
+				line(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+
+			// Draw line to the point directly to the right (if it exists)
+			line(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+		x++;
+		}
+
+		// Draw line to the last point in the row to combine end of row with first
+		if (matrix[y + 1])
+			line(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+
+
+	y++; // Move to the next row
+	}
+}
