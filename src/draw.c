@@ -238,7 +238,28 @@ int	calculate_initial_error(int dx, int dy)
 	return (err);
 }
 
-void line(t_dot a, t_dot b, t_dot *param) // need to rewrite this , does not show 42 yet, works to draw the raster
+int	calculate_color(int dot_a, int dot_b)
+{
+	int	color;
+
+	// Default color red
+	color = 0xBBFAFF;
+
+	// Check if either a_z or b_z is non-zero
+	if (dot_a || dot_b) {
+		color = 0xfc0345;
+	}
+
+	// Check if a_z is not equal to b_z
+	if (dot_a != dot_b) {
+		color = 0xfc031c;
+	}
+
+	return color;
+}
+
+
+void bresenham(t_dot a, t_dot b, t_dot *param) // need to rewrite this with less variable use // now test isometric as next step
 {
 	int	x0;
 	int	y0;
@@ -250,6 +271,7 @@ void line(t_dot a, t_dot b, t_dot *param) // need to rewrite this , does not sho
 	int	sx;
 	int	sy;
 	int	e2;
+	int	color;
 
 
 	set_param(&a, &b, param);
@@ -262,18 +284,22 @@ void line(t_dot a, t_dot b, t_dot *param) // need to rewrite this , does not sho
 	dy = abs(y1 - y0);
 	sy = compare_sign(y0, y1);
 	err = calculate_initial_error(dx, dy);
+	color = calculate_color(a.z, b.z);
 
 	while (1)
 	{
-		mlx_pixel_put(param->mlx_ptr, param->win_ptr, x0, y0, 0xffffff);
+		mlx_pixel_put(param->mlx_ptr, param->win_ptr, x0, y0, color);
+		// Check if the endpoint has been reached
 		if (x0 == x1 && y0 == y1)
 			break ;
 		e2 = err;
+		// Update the error term and x-coordinate
 		if (e2 > -dx)
 		{
 			err -= dy;
 			x0 += sx;
 		}
+		// Update the error term and y-coordinate
 		if (e2 < dy)
 		{
 			err += dx;
@@ -350,16 +376,16 @@ void	draw(t_dot **matrix)
 		{
 			// Draw line to the point directly below (if it exists)
 			if (matrix[y + 1])
-				line(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+				bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 			// Draw line to the point directly to the right (if it exists)
-			line(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+			bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
 		x++;
 		}
 
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
-			line(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+			bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 
 	y++; // Move to the next row
