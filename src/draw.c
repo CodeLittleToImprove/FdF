@@ -242,20 +242,19 @@ int	calculate_color(int dot_a, int dot_b)
 {
 	int	color;
 
-	// Default color red
-	color = 0xBBFAFF;
+	// Default color white for lines
+	color = 0xFFFFFF;
 
-	// Check if either a_z or b_z is non-zero
-	if (dot_a || dot_b) {
+	printf("dot_a: %d, dot_b: %d\n", dot_a, dot_b);
+	// Check if either a_z or b_z is non-zero // color red for z values
+	if (dot_a || dot_b)
 		color = 0xfc0345;
-	}
 
-	// Check if a_z is not equal to b_z
-	if (dot_a != dot_b) {
-		color = 0xfc031c;
-	}
+	// Check if a_z is not equal to b_z // color cyan for outline of z
+	if (dot_a != dot_b)
+		color = 0x00FFFF;
 
-	return color;
+	return (color);
 }
 
 
