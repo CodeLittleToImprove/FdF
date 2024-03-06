@@ -230,10 +230,21 @@ int	compare_sign(int a, int b)
 int	calculate_initial_error(int dx, int dy)
 {
 	int	err;
+	// Initialize the decision variable based on the comparison between dx and dy.
+	// The decision variable is used to decide when to increment the y-coordinate
+	// (in addition to the x-coordinate) to approximate a straight line on a pixel grid.
 
 	if (dx > dy)
+		// For lines more horizontal than vertical, the initial error is set to half of dx.
+		// This represents the point at which the accumulated error of drawing a straight line
+		// on the pixel grid justifies moving one pixel up or down (in the y-direction).
+
 		err = dx / 2;
 	else
+		// For lines more vertical than horizontal, or equally steep in both x and y directions,
+		// the initial error is set to half of dy, but negated.
+		// This effectively makes the algorithm more inclined to make an initial move in the y-direction,
+		// reflecting the steeper ascent/descent of the line.
 		err = -dy / 2;
 	return (err);
 }
@@ -257,8 +268,15 @@ int	calculate_color(int dot_a, int dot_b)
 	return (color);
 }
 
+void isometric_int(int *x, int *y, int z) {
+	// Approximate cos(30 degrees) ~ 0.866 (866/1000) and sin(30 degrees) ~ 0.5 (500/1000)
+	int original_x = *x;
+	int original_y = *y;
+	*x = ((original_x - original_y) * 866) / 1000;
+	*y = ((original_x + original_y) * 500) / 1000 - z;
+}
 
-void bresenham(t_dot a, t_dot b, t_dot *param) // need to rewrite this with less variable use // now test isometric as next step
+void bresenham(t_dot a, t_dot b, t_dot *param) // need to rewrite this with less variable use //
 {
 	int	x0;
 	int	y0;
@@ -274,6 +292,9 @@ void bresenham(t_dot a, t_dot b, t_dot *param) // need to rewrite this with less
 
 
 	set_param(&a, &b, param);
+	// Convert to isometric coordinates before anything else
+	isometric_int(&a.x, &a.y, a.z);
+	isometric_int(&b.x, &b.y, b.z);
 	x0 = a.x;
 	y0 = a.y;
 	x1 = b.x;
