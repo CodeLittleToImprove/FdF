@@ -74,50 +74,86 @@ void	isometric_int(int *x, int *y, int z)
 	*y = ((original_x + original_y) * 500) / 1000 - z;
 }
 
-//void	assign_coordiantes(t_dot a, t_dot b, int *x0, int *y0, int *x1, int *y1)
-//{
-//
-//}
-
-void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version
+void perform_bresenham(t_dot a, t_dot b, t_dot *param, t_BresenhamPara params)
 {
-	int	dx;
-	int	sx;
-	int	dy;
-	int	sy;
-	int	err;
+	int e2;
+	while (1)
+	{
+		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y, calculate_color(a.z, b.z));
+		// Check if the endpoint has been reached
+		if (a.x == b.x && a.y == b.y)
+			break;
+		e2 = params.err;
+		// Update the error term and x-coordinate
+		if (e2 > -params.dx) {
+			params.err -= params.dy;
+			a.x += params.sx;
+		}
+		// Update the error term and y-coordinate
+		if (e2 < params.dy) {
+			params.err += params.dx;
+			a.y += params.sy;
+		}
+	}
+}
+
+void prepare_Bresenham(t_dot a, t_dot b, t_dot *param)
+{
+	t_BresenhamPara	params;
 
 	set_param(&a, &b, param);
 	// Convert to isometric coordinates before anything else
 	isometric_int(&a.x, &a.y, a.z);
 	isometric_int(&b.x, &b.y, b.z);
-	dx = abs(b.x - a.x);
-	sx = compare_sign(a.x, b.x);
-	dy = abs(b.y - a.y);
-	sy = compare_sign(a.y, b.y);
-	err = calculate_initial_error(dx, dy);
+	params.dx = abs(b.x - a.x);
+	params.sx = compare_sign(a.x, b.x);
+	params.dy = abs(b.y - a.y);
+	params.sy = compare_sign(a.y, b.y);
+	params.err = calculate_initial_error(params.dx, params.dy);
 
-
-	while (1)
-	{
-		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
-			calculate_color(a.z, b.z));
-		// Check if the endpoint has been reached
-		if (a.x == b.x && a.y == b.y)
-			break;
-		int e2 = err;
-		// Update the error term and x-coordinate
-		if (e2 > -dx) {
-			err -= dy;
-			a.x += sx;
-		}
-		// Update the error term and y-coordinate
-		if (e2 < dy) {
-			err += dx;
-			a.y += sy;
-		}
-	}
+	// Call the separate function for the Bresenham algorithm
+	perform_bresenham(a, b, param, params);
 }
+
+//void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version which is more readable than the norminette comfort
+//{
+//	int	dx;
+//	int	sx;
+//	int	dy;
+//	int	sy;
+//	int	err;
+//
+//	set_param(&a, &b, param);
+//	// Convert to isometric coordinates before anything else
+//	isometric_int(&a.x, &a.y, a.z);
+//	isometric_int(&b.x, &b.y, b.z);
+//	dx = abs(b.x - a.x);
+//	sx = compare_sign(a.x, b.x);
+//	dy = abs(b.y - a.y);
+//	sy = compare_sign(a.y, b.y);
+//	err = calculate_initial_error(dx, dy);
+//
+//
+//	while (1)
+//	{
+//		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
+//			calculate_color(a.z, b.z));
+//		// Check if the endpoint has been reached
+//		if (a.x == b.x && a.y == b.y)
+//			break;
+//		int e2 = err;
+//		// Update the error term and x-coordinate
+//		if (e2 > -dx) {
+//			err -= dy;
+//			a.x += sx;
+//		}
+//		// Update the error term and y-coordinate
+//		if (e2 < dy) {
+//			err += dx;
+//			a.y += sy;
+//		}
+//	}
+//}
 
 //void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version // no comments
 //{
@@ -273,18 +309,47 @@ void	draw(t_dot **matrix)
 		{
 			// Draw line to the point directly below (if it exists)
 			if (matrix[y + 1])
-				bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+				prepare_Bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 			// Draw line to the point directly to the right (if it exists)
-			bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+			prepare_Bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
 		x++;
 		}
 
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
-			bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+			prepare_Bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 
 	y++; // Move to the next row
 	}
 }
+
+//void	draw(t_dot **matrix) // working version
+//{
+//	int	y;
+//	int	x;
+//
+//	y = 0;
+//	while (matrix[y] != NULL)
+//	{
+//		x = 0;
+//		while (!matrix[y][x].is_last)
+//		{
+//			// Draw line to the point directly below (if it exists)
+//			if (matrix[y + 1])
+//				bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+//
+//			// Draw line to the point directly to the right (if it exists)
+//			bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+//			x++;
+//		}
+//
+//		// Draw line to the last point in the row to combine end of row with first
+//		if (matrix[y + 1])
+//			bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+//
+//
+//		y++; // Move to the next row
+//	}
+//}

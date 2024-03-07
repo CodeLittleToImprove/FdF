@@ -17,7 +17,7 @@ void	set_default_values(t_dot *param)
 	param->scale = 20;
 	param->z_scale = 1;
 	param->is_isometric = 0;
-	param->angle = 0.523599;
+//	param->angle = 0.523599;
 	param->win_x = 1920;
 	param->win_y = 1000;
 	param->shift_x = param->win_x / 3;

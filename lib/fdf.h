@@ -47,12 +47,21 @@ typedef struct s_dot
 	int			shift_x;
 	int			shift_y;
 	int			is_isometric;
-	double		angle;
+//	double		angle;
 	int			win_x;
 	int			win_y;
 	void		*mlx_ptr;
 	void		*win_ptr;
 }			t_dot;
+
+typedef struct s_BresenhamPara
+{
+	int	dx;
+	int	sx;
+	int	dy;
+	int	sy;
+	int	err;
+}	t_BresenhamPara;
 
 t_dot	**read_map_file(char *file_name);
 t_dot	**allocate_matrix(char *file_name);
