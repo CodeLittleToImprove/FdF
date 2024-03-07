@@ -64,9 +64,12 @@ int	calculate_color(int dot_a, int dot_b)
 
 void	isometric_int(int *x, int *y, int z)
 {
+	int	original_x;
+	int	original_y;
+
+	original_x = *x;
+	original_y = *y;
 	// Approximate cos(30 degrees) ~ 0.866 (866/1000) and sin(30 degrees) ~ 0.5 (500/1000)
-	int original_x = *x;
-	int original_y = *y;
 	*x = ((original_x - original_y) * 866) / 1000;
 	*y = ((original_x + original_y) * 500) / 1000 - z;
 }
@@ -76,22 +79,29 @@ void	isometric_int(int *x, int *y, int z)
 //
 //}
 
-void bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version
+void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version
 {
+	int	dx;
+	int	sx;
+	int	dy;
+	int	sy;
+	int	err;
+
 	set_param(&a, &b, param);
 	// Convert to isometric coordinates before anything else
-//	isometric_int(&a.x, &a.y, a.z);
-//	isometric_int(&b.x, &b.y, b.z);
+	isometric_int(&a.x, &a.y, a.z);
+	isometric_int(&b.x, &b.y, b.z);
+	dx = abs(b.x - a.x);
+	sx = compare_sign(a.x, b.x);
+	dy = abs(b.y - a.y);
+	sy = compare_sign(a.y, b.y);
+	err = calculate_initial_error(dx, dy);
 
-	int dx = abs(b.x - a.x);
-	int sx = compare_sign(a.x, b.x);
-	int dy = abs(b.y - a.y);
-	int sy = compare_sign(a.y, b.y);
-	int err = calculate_initial_error(dx, dy);
-	int color = calculate_color(a.z, b.z);
 
-	while (1) {
-		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y, color);
+	while (1)
+	{
+		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
+			calculate_color(a.z, b.z));
 		// Check if the endpoint has been reached
 		if (a.x == b.x && a.y == b.y)
 			break;
@@ -108,6 +118,43 @@ void bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version
 		}
 	}
 }
+
+//void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version // no comments
+//{
+//	int	dx;
+//	int	sx;
+//	int	dy;
+//	int	sy;
+//	int	err;
+//
+//	set_param(&a, &b, param);
+//	isometric_int(&a.x, &a.y, a.z);
+//	isometric_int(&b.x, &b.y, b.z);
+//	dx = abs(b.x - a.x);
+//	sx = compare_sign(a.x, b.x);
+//	dy = abs(b.y - a.y);
+//	sy = compare_sign(a.y, b.y);
+//	err = calculate_initial_error(dx, dy);
+//
+//	while (1)
+//	{
+//		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
+//			calculate_color(a.z, b.z));
+//		if (a.x == b.x && a.y == b.y)
+//			break;
+//		int e2 = err;
+//		if (e2 > -dx)
+//		{
+//			err -= dy;
+//			a.x += sx;
+//		}
+//		if (e2 < dy)
+//		{
+//			err += dx;
+//			a.y += sy;
+//		}
+//	}
+//}
 
 //void bresenham(t_dot a, t_dot b, t_dot *param) // need to rewrite this with less variable use // do keybindings // long version
 //{
