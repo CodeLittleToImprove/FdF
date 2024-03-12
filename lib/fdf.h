@@ -26,6 +26,9 @@
 # include <stdbool.h>
 
 # define MATRIX_TOP_LEFT matrix[0][0]
+
+/* Define keyboard code */
+# define ESCAPE 65307
 //typedef struct	s_data {
 //	void	*img;
 //	char	*addr;
@@ -74,4 +77,5 @@ int		deal_key(int key, t_dot **matrix);
 void	set_param(t_dot *a, t_dot *b, t_dot *param);
 void	ft_error_and_exit(char *msg);
 void	ft_free_array(char *array[]);
+int		compare_sign(int a, int b);
 #endif

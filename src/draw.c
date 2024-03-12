@@ -12,15 +12,6 @@
 
 #include "../lib/fdf.h"
 
-
-int	compare_sign(int a, int b)
-{
-	if (a < b)
-		return (1);
-	else
-		return (-1);
-}
-
 int	calculate_initial_error(int dx, int dy)
 {
 	int	err;
@@ -50,7 +41,7 @@ int	calculate_color(int dot_a, int dot_b)
 	// Default color white for lines
 	color = 0xFFFFFF;
 
-	printf("dot_a: %d, dot_b: %d\n", dot_a, dot_b);
+//	printf("dot_a: %d, dot_b: %d\n", dot_a, dot_b);
 	// Check if either a_z or b_z is non-zero // color red for z values
 	if (dot_a || dot_b)
 		color = 0xfc0345;
@@ -74,30 +65,33 @@ void	isometric_int(int *x, int *y, int z)
 	*y = ((original_x + original_y) * 500) / 1000 - z;
 }
 
-void perform_bresenham(t_dot a, t_dot b, t_dot *param, t_BresenhamPara params)
+void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
+						t_BresenhamPara params)
 {
-	int e2;
-	while (1)
+	int	e2;
+	// Continue iterating until the endpoint is reached
+	while (a.x != b.x || a.y != b.y)
 	{
-		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y, calculate_color(a.z, b.z));
-		// Check if the endpoint has been reached
-		if (a.x == b.x && a.y == b.y)
-			break;
+		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
+			calculate_color(a.z, b.z));
+
 		e2 = params.err;
 		// Update the error term and x-coordinate
-		if (e2 > -params.dx) {
+		if (e2 > -params.dx)
+		{
 			params.err -= params.dy;
 			a.x += params.sx;
 		}
 		// Update the error term and y-coordinate
-		if (e2 < params.dy) {
+		if (e2 < params.dy)
+		{
 			params.err += params.dx;
 			a.y += params.sy;
 		}
 	}
 }
 
-void prepare_Bresenham(t_dot a, t_dot b, t_dot *param)
+void	prepare_bresenham(t_dot a, t_dot b, t_dot *param)
 {
 	t_BresenhamPara	params;
 
@@ -309,16 +303,16 @@ void	draw(t_dot **matrix)
 		{
 			// Draw line to the point directly below (if it exists)
 			if (matrix[y + 1])
-				prepare_Bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+				prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 			// Draw line to the point directly to the right (if it exists)
-			prepare_Bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
+			prepare_bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
 		x++;
 		}
 
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
-			prepare_Bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+			prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
 
 
 	y++; // Move to the next row

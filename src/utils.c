@@ -30,3 +30,11 @@ void	ft_free_array(char *array[])
 	}
 	free(array);
 }
+
+int	compare_sign(int a, int b)
+{
+	if (a < b)
+		return (1);
+	else
+		return (-1);
+}

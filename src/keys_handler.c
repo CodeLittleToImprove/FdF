@@ -11,9 +11,26 @@
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
+#include <X11/keysym.h>
 
-int		deal_key(int key, t_dot **matrix)
+int	deal_key(int key, t_dot **matrix)
 {
-	ft_printf("%d", key);
+	if (key == XK_Escape)
+	{
+		ft_printf("%d\n", key);
+		mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr, MATRIX_TOP_LEFT.win_ptr);
+		free(matrix);
+		exit(0);
+	}
+	else
+		ft_printf("%d\n", key);
 	return (0);
 }
+
+
+
+//int	deal_key(int key, t_dot **matrix) working version
+//{
+//	ft_printf("%d\n", key);
+//	return (0);
+//}
