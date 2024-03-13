@@ -1,0 +1,1154 @@
+==25706== Memcheck, a memory error detector
+==25706== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==25706== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==25706== Command: ./fdf 42.fdf
+==25706== 
+65307
+==25706== 
+==25706== HEAP SUMMARY:
+==25706==     in use at exit: 107,984 bytes in 115 blocks
+==25706==   total heap usage: 645 allocs, 530 frees, 137,420 bytes allocated
+==25706== 
+==25706== 6 bytes in 1 blocks are still reachable in loss record 1 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4A6C58E: strdup (strdup.c:42)
+==25706==    by 0x489EB45: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 8 bytes in 1 blocks are still reachable in loss record 2 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4A6C58E: strdup (strdup.c:42)
+==25706==    by 0x489B9AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x49B5820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 8 bytes in 1 blocks are still reachable in loss record 3 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B3B34: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 10 bytes in 1 blocks are still reachable in loss record 4 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4A6C58E: strdup (strdup.c:42)
+==25706==    by 0x489B9AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x4905213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489F6A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 16 bytes in 1 blocks are still reachable in loss record 5 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4BFC2EE: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x48AEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 21 bytes in 1 blocks are still reachable in loss record 6 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F03E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 24 bytes in 1 blocks are still reachable in loss record 7 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B5041: XextCreateExtension (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B54CC: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XextCreateExtension
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 24 bytes in 1 blocks are still reachable in loss record 8 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4A6C58E: strdup (strdup.c:42)
+==25706==    by 0x489B9AE: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x49B5820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B550A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:strdup
+   fun:XInitExtension
+   fun:XextAddDisplay
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 24 bytes in 1 blocks are still reachable in loss record 9 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B59F5: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 24 bytes in 1 blocks are still reachable in loss record 10 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48ACA65: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B52C6: _XReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD40A: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 29 bytes in 1 blocks are still reachable in loss record 11 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48980CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489A929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C7D2: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 32 bytes in 1 blocks are still reachable in loss record 12 of 52
+==25706==    at 0x48487A9: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4C0015E: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C00237: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C002EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C00364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x489F52B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 32 bytes in 1 blocks are still reachable in loss record 13 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4BF91B7: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BF9A08: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BF9EB0: ??? (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BFAE44: xcb_wait_for_reply (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C00292: xcb_get_extension_data (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C002EE: xcb_prefetch_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4C00364: xcb_get_maximum_request_length (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x489F52B: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+   fun:xcb_wait_for_reply
+   fun:xcb_get_extension_data
+   fun:xcb_prefetch_maximum_request_length
+   fun:xcb_get_maximum_request_length
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 32 bytes in 1 blocks are still reachable in loss record 14 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B57FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 32 bytes in 1 blocks are still reachable in loss record 15 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B57FF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B550A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XextAddDisplay
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 33 bytes in 1 blocks are still reachable in loss record 16 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48980CD: _XUpdateAtomCache (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489A929: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C7BB: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XUpdateAtomCache
+   fun:XInternAtom
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 40 bytes in 1 blocks are still reachable in loss record 17 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48AF1F1: _XPollfdCacheInit (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EE71: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XPollfdCacheInit
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 48 bytes in 1 blocks are still reachable in loss record 18 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48AEE71: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 48 bytes in 1 blocks are still reachable in loss record 19 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48AEE87: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 48 bytes in 1 blocks are still reachable in loss record 20 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FD4C0: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 72 bytes in 1 blocks are still reachable in loss record 21 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489EF20: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 72 bytes in 1 blocks are still reachable in loss record 22 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FD4A4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 112 bytes in 1 blocks are still reachable in loss record 23 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48AED72: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 112 bytes in 1 blocks are still reachable in loss record 24 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F200: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 128 bytes in 1 blocks are still reachable in loss record 25 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F12E: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 128 bytes in 1 blocks are still reachable in loss record 26 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489B99E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x4905213: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489F6A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 128 bytes in 1 blocks are still reachable in loss record 27 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489B99E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x49B5820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 128 bytes in 1 blocks are still reachable in loss record 28 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489B99E: XInitExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x49B5820: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B550A: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59C8: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XInitExtension
+   fun:XextAddDisplay
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 136 bytes in 1 blocks are still reachable in loss record 29 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x10C70F: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 145 bytes in 1 blocks are still reachable in loss record 30 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F710: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 152 bytes in 1 blocks are still reachable in loss record 31 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x490540E: XkbUseExtension (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489F6A8: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbUseExtension
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 160 bytes in 1 blocks are still reachable in loss record 32 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x488D9EF: XCreateGC (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489F5A4: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:XCreateGC
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 168 bytes in 1 blocks are still reachable in loss record 33 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F0B2: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 208 bytes in 1 blocks are still reachable in loss record 34 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x49B3AE9: ??? (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49B59DF: XextAddDisplay (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x49BA9E2: XShmQueryVersion (in /usr/lib/x86_64-linux-gnu/libXext.so.6.4.0)
+==25706==    by 0x10C553: mlx_int_deal_shm (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C7E1: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+   fun:XextAddDisplay
+   fun:XShmQueryVersion
+   fun:mlx_int_deal_shm
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 208 bytes in 1 blocks are still reachable in loss record 35 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48B0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B5205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10CD25: mlx_int_wait_first_expose (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C99E: mlx_new_window (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A6A8: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:set_default_values
+   fun:main
+}
+==25706== 256 bytes in 1 blocks are still reachable in loss record 36 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x490255D: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD0DE: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 344 bytes in 6 blocks are still reachable in loss record 37 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FC8F5: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 512 bytes in 1 blocks are still reachable in loss record 38 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489A46A: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489A84E: XInternAtom (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C7BB: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XInternAtom
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 832 bytes in 4 blocks are still reachable in loss record 39 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48B0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B5205: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10CD25: mlx_int_wait_first_expose (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C99E: mlx_new_window (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A6A8: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:set_default_values
+   fun:main
+}
+==25706== 832 bytes in 4 blocks are still reachable in loss record 40 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48B0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3C69: _XEventsQueued (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x488E87D: XFlush (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10CA6F: mlx_pixel_put (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10ABD8: perform_bresenham (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10AD6A: prepare_bresenham (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10AED2: draw (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A70D: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XEventsQueued
+   fun:XFlush
+   fun:mlx_pixel_put
+   fun:perform_bresenham
+   fun:prepare_bresenham
+   fun:draw
+   fun:main
+}
+==25706== 1,120 bytes in 1 blocks are still reachable in loss record 41 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4902619: XkbAllocClientMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FCEB7: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XkbAllocClientMap
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 1,456 bytes in 7 blocks are still reachable in loss record 42 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48B0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B4EC0: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10CD25: mlx_int_wait_first_expose (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C99E: mlx_new_window (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A6A8: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:set_default_values
+   fun:main
+}
+==25706== 2,016 bytes in 27 blocks are still reachable in loss record 43 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FC7DD: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 2,048 bytes in 1 blocks are still reachable in loss record 44 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FC914: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 2,080 bytes in 10 blocks are still reachable in loss record 45 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48B0FAE: _XEnq (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B3BB6: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B4F01: _XReadEvents (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48B51D0: XWindowEvent (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10CD25: mlx_int_wait_first_expose (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10C99E: mlx_new_window (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A6A8: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:malloc
+   fun:_XEnq
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:_XReadEvents
+   fun:XWindowEvent
+   fun:mlx_int_wait_first_expose
+   fun:mlx_new_window
+   fun:set_default_values
+   fun:main
+}
+==25706== 4,704 bytes in 1 blocks are still reachable in loss record 46 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489EB31: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 6,144 bytes in 1 blocks are still reachable in loss record 47 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x48FD13E: _XkbReadGetMapReply (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD41E: XkbGetUpdatedMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD4F4: XkbGetMap (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD542: ??? (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x48FD8AF: XkbKeycodeToKeysym (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10D0D7: mlx_int_param_KeyRelease (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10CBD5: mlx_loop (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A741: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:_XkbReadGetMapReply
+   fun:XkbGetUpdatedMap
+   fun:XkbGetMap
+   obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+   fun:XkbKeycodeToKeysym
+   fun:mlx_int_param_KeyRelease
+   fun:mlx_loop
+   fun:main
+}
+==25706== 9,572 bytes in 1 blocks are still reachable in loss record 48 of 52
+==25706==    at 0x484DCD3: realloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4BFC4FB: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x48AEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:realloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 14,080 bytes in 11 blocks are definitely lost in loss record 49 of 52
+==25706==    at 0x4848899: malloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x10A9DF: allocate_matrix (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10AA18: read_map_file (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A6EE: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: definite
+   fun:malloc
+   fun:allocate_matrix
+   fun:read_map_file
+   fun:main
+}
+==25706== 16,384 bytes in 1 blocks are still reachable in loss record 50 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489EEBE: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 21,168 bytes in 1 blocks are still reachable in loss record 51 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x4BFC204: xcb_connect_to_fd (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x4BFCE6B: xcb_connect_to_display_with_auth_info (in /usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0)
+==25706==    by 0x48AEEE9: _XConnectXCB (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x489EB68: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:xcb_connect_to_fd
+   fun:xcb_connect_to_display_with_auth_info
+   fun:_XConnectXCB
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== 21,840 bytes in 2 blocks are still reachable in loss record 52 of 52
+==25706==    at 0x484DA83: calloc (in /usr/libexec/valgrind/vgpreload_memcheck-amd64-linux.so)
+==25706==    by 0x489F290: XOpenDisplay (in /usr/lib/x86_64-linux-gnu/libX11.so.6.4.0)
+==25706==    by 0x10C727: mlx_init (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A67B: set_default_values (in /home/kunel/CLionProjects/FdF/fdf)
+==25706==    by 0x10A701: main (in /home/kunel/CLionProjects/FdF/fdf)
+==25706== 
+{
+   <insert_a_suppression_name_here>
+   Memcheck:Leak
+   match-leak-kinds: reachable
+   fun:calloc
+   fun:XOpenDisplay
+   fun:mlx_init
+   fun:set_default_values
+   fun:main
+}
+==25706== LEAK SUMMARY:
+==25706==    definitely lost: 14,080 bytes in 11 blocks
+==25706==    indirectly lost: 0 bytes in 0 blocks
+==25706==      possibly lost: 0 bytes in 0 blocks
+==25706==    still reachable: 93,904 bytes in 104 blocks
+==25706==         suppressed: 0 bytes in 0 blocks
+==25706== 
+==25706== For lists of detected and suppressed errors, rerun with: -s
+==25706== ERROR SUMMARY: 1 errors from 1 contexts (suppressed: 1 from 1)

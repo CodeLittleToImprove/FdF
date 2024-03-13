@@ -1,0 +1,645 @@
+{
+   AutoSuppression_1
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:strdup
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_2
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:strdup
+fun:XInitExtension
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_3
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_4
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:strdup
+fun:XInitExtension
+fun:XkbUseExtension
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_5
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:xcb_connect_to_fd
+fun:xcb_connect_to_display_with_auth_info
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_6
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_7
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XextCreateExtension
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_8
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:strdup
+fun:XInitExtension
+fun:XextAddDisplay
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_9
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_10
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_11
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XUpdateAtomCache
+fun:XInternAtom
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_12
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+fun:xcb_get_extension_data
+fun:xcb_prefetch_maximum_request_length
+fun:xcb_get_maximum_request_length
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_13
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+obj:/usr/lib/x86_64-linux-gnu/libxcb.so.1.1.0
+fun:xcb_wait_for_reply
+fun:xcb_get_extension_data
+fun:xcb_prefetch_maximum_request_length
+fun:xcb_get_maximum_request_length
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_14
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_15
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XextAddDisplay
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_16
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XUpdateAtomCache
+fun:XInternAtom
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_17
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XPollfdCacheInit
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_18
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_19
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_20
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_21
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_22
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_23
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_24
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_25
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_26
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XInitExtension
+fun:XkbUseExtension
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_27
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XInitExtension
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_28
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XInitExtension
+fun:XextAddDisplay
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_29
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_30
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_31
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XkbUseExtension
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_32
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:XCreateGC
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_33
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_34
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+obj:/usr/lib/x86_64-linux-gnu/libXext.so.6.4.0
+fun:XextAddDisplay
+fun:XShmQueryVersion
+fun:mlx_int_deal_shm
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_35
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XEnq
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XReadEvents
+fun:XWindowEvent
+fun:mlx_int_wait_first_expose
+fun:mlx_new_window
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_36
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XkbAllocClientMap
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_37
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_38
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XInternAtom
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_39
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XEnq
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XReadEvents
+fun:XWindowEvent
+fun:mlx_int_wait_first_expose
+fun:mlx_new_window
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_40
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XEnq
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XEventsQueued
+fun:XFlush
+fun:mlx_pixel_put
+fun:perform_bresenham
+fun:prepare_bresenham
+fun:draw
+fun:main
+}
+{
+   AutoSuppression_41
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XkbAllocClientMap
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_42
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XEnq
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XReadEvents
+fun:XWindowEvent
+fun:mlx_int_wait_first_expose
+fun:mlx_new_window
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_43
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_44
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_45
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:malloc
+fun:_XEnq
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:_XReadEvents
+fun:XWindowEvent
+fun:mlx_int_wait_first_expose
+fun:mlx_new_window
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_46
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_47
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:_XkbReadGetMapReply
+fun:XkbGetUpdatedMap
+fun:XkbGetMap
+obj:/usr/lib/x86_64-linux-gnu/libX11.so.6.4.0
+fun:XkbKeycodeToKeysym
+fun:mlx_int_param_KeyRelease
+fun:mlx_loop
+fun:main
+}
+{
+   AutoSuppression_48
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:realloc
+fun:xcb_connect_to_fd
+fun:xcb_connect_to_display_with_auth_info
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_49
+Memcheck:Leak
+match-leak-kinds: definite
+fun:malloc
+fun:allocate_matrix
+fun:read_map_file
+fun:main
+}
+{
+   AutoSuppression_50
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_51
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:xcb_connect_to_fd
+fun:xcb_connect_to_display_with_auth_info
+fun:_XConnectXCB
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
+{
+   AutoSuppression_52
+Memcheck:Leak
+match-leak-kinds: reachable
+fun:calloc
+fun:XOpenDisplay
+fun:mlx_init
+fun:set_default_values
+fun:main
+}
