@@ -45,6 +45,7 @@ int	main(int argc, char *argv[])
 	draw(matrix);
 	mlx_key_hook(MATRIX_TOP_LEFT.win_ptr, deal_key, matrix);
 	mlx_loop(MATRIX_TOP_LEFT.mlx_ptr);
+
 //	ft_free_array(matrix);
 //	matrix->mlx_ptr = mlx_init();
 //	matrix->win_ptr = mlx_new_window(matrix->mlx_ptr, 1000, 1000, "FDF");
@@ -53,6 +54,12 @@ int	main(int argc, char *argv[])
 //	draw(matrix);
 //	mlx_key_hook(matrix->win_ptr, deal_key, NULL);
 //	mlx_loop(matrix->mlx_ptr);
+
+// not sure if needed
+//	mlx_destroy_image(mlx_ptr, img_ptr);
+//	printf("i am here?\n");
+//	mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr, MATRIX_TOP_LEFT.win_ptr);
+//	mlx_destroy_display(MATRIX_TOP_LEFT.mlx_ptr);
 	if (argc == 100)
 		return (-10);
 }

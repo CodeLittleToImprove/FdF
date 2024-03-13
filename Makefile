@@ -18,7 +18,8 @@ SRC = src/main.c \
 src/read_file.c \
 src/draw.c \
 src/utils.c \
-src/keys_handler.c
+src/keys_handler.c \
+src/set_param.c
 
 OBJ = $(SRC:.c=.o)
 LIBS = -Llib/libft -lft \

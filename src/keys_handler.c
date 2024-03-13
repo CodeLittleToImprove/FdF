@@ -19,7 +19,7 @@ int	deal_key(int key, t_dot **matrix)
 	{
 		ft_printf("%d\n", key);
 		mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr, MATRIX_TOP_LEFT.win_ptr);
-		free(matrix);
+//		free(matrix);
 		exit(0);
 	}
 	else
