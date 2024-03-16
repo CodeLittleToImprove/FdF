@@ -14,7 +14,7 @@
 
 void	set_default_values(t_dot *param)
 {
-	param->scale = 20;
+	param->scale = 20; // zoom in and out
 	param->z_scale = 1;
 	param->is_isometric = 0;
 //	param->angle = 0.523599;
