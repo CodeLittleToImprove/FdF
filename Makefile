@@ -19,7 +19,8 @@ src/read_file.c \
 src/draw.c \
 src/utils.c \
 src/keys_handler.c \
-src/set_param.c
+src/set_param.c \
+src/help_menu.c
 
 OBJ = $(SRC:.c=.o)
 LIBS = -Llib/libft -lft \

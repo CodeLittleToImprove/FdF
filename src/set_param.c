@@ -25,11 +25,11 @@ void	zoom(t_dot *a, t_dot *b, t_dot *param)
 void	set_param(t_dot *a, t_dot *b, t_dot *param)
 {
 	zoom(a, b, param);
-//	if (param->is_isometric)
-//	{
-//		isometric(a, param->angle);
-//		isometric(b, param->angle);
-//	}
+	if (param->isometric_on)
+	{
+		isometric_int(&a->x, &a->y, a->z);
+		isometric_int(&b->x, &b->y, b->z);
+	}
 	a->x += param->shift_x;
 	a->y += param->shift_y;
 	b->x += param->shift_x;

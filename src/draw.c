@@ -97,8 +97,8 @@ void	prepare_bresenham(t_dot a, t_dot b, t_dot *param)
 
 	set_param(&a, &b, param);
 	// Convert to isometric coordinates before anything else
-	isometric_int(&a.x, &a.y, a.z);
-	isometric_int(&b.x, &b.y, b.z);
+//	isometric_int(&a.x, &a.y, a.z);
+//	isometric_int(&b.x, &b.y, b.z);
 	params.dx = abs(b.x - a.x);
 	params.sx = compare_sign(a.x, b.x);
 	params.dy = abs(b.y - a.y);
@@ -296,6 +296,7 @@ void	draw(t_dot **matrix)
 	int	x;
 
 	y = 0;
+	print_help(MATRIX_TOP_LEFT);
 	while (matrix[y] != NULL)
 	{
 		x = 0;

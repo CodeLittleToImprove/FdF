@@ -49,8 +49,7 @@ typedef struct s_dot
 	int			z_scale;
 	int			shift_x;
 	int			shift_y;
-	int			is_isometric;
-//	double		angle;
+	bool		isometric_on;
 	int			win_x;
 	int			win_y;
 	void		*mlx_ptr;
@@ -72,6 +71,8 @@ void	isometric(int *x, int *y, int z);
 //void isometric(float *x, float *y, float z);
 //void	bresenham(float x, float y, float x1, float y1, t_dot *data);
 //void	bresenham(int x, int y, int x1, int y1, t_dot *data);
+void	isometric_int(int *x, int *y, int z);
+void	print_help(t_dot param);
 void	draw(t_dot **matrix);
 int		deal_key(int key, t_dot **matrix);
 void	set_param(t_dot *a, t_dot *b, t_dot *param);

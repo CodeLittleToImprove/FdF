@@ -23,6 +23,7 @@ add_executable(fdf
         src/utils.c
         src/keys_handler.c
         src/set_param.c
+        src/help_menu.c
 )
 
 # Link the executable with the libft, mlx_linux, X11, and Xext libraries
