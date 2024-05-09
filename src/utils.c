@@ -18,6 +18,13 @@ void	ft_error_and_exit(char *msg)
 	exit(1);
 }
 
+void	handle_empty_or_null_line(char *line, int fd)
+{
+	if (line != NULL)
+		free(line);
+	close(fd);
+	exit(1);
+}
 void	ft_free_array(char *array[])
 {
 	size_t	i;

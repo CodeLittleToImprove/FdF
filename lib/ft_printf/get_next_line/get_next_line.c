@@ -151,19 +151,19 @@ char	*get_next_line(int fd)
 // in the end the rest_buf stores
 // the remainder of what was read but not printed. 
 
-// int	main(void)
-// {
-// 	int		fd;
-// 	char	*line;
-// 	int		i;
-
-// 	fd = open("example.txt", O_RDONLY);
-// 	while (i < 6)
-// 	{
-// 		line = get_next_line(fd);
-// 		free(line);
-// 		i++;
-// 	}
-// 	close(fd);
-// 	return (0);
-// }
+//int	main(void)
+//{
+//	int		fd;
+//	char	*line;
+//	int		i;
+//
+//	fd = open("almost_empty", O_RDONLY);
+//	while (i < 6)
+//	{
+//		line = get_next_line(fd);
+//		free(line);
+//		i++;
+//	}
+//	close(fd);
+//	return (0);
+//}

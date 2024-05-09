@@ -20,4 +20,6 @@ void	print_help(t_dot param)
 	mlx_string_put(param.mlx_ptr, param.win_ptr, 20, 20, 0xC0C0C0, menu_text);
 	menu_text = "To zoom in and out use + -";
 	mlx_string_put(param.mlx_ptr, param.win_ptr, 20, 40, 0xC0C0C0, menu_text);
+	menu_text = "To turn off isometric view press i";
+	mlx_string_put(param.mlx_ptr, param.win_ptr, 20, 60, 0xC0C0C0, menu_text);
 }

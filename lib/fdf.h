@@ -56,7 +56,7 @@ typedef struct s_dot
 	void		*win_ptr;
 }			t_dot;
 
-typedef struct s_BresenhamPara
+typedef struct s_BresenhamPara // remember what the variable stands for
 {
 	int	dx;
 	int	sx;
@@ -67,6 +67,7 @@ typedef struct s_BresenhamPara
 
 t_dot	**read_map_file(char *file_name);
 t_dot	**allocate_matrix(char *file_name);
+int		count_lines_and_free(int fd);
 void	isometric(int *x, int *y, int z);
 //void isometric(float *x, float *y, float z);
 //void	bresenham(float x, float y, float x1, float y1, t_dot *data);
@@ -77,6 +78,7 @@ void	draw(t_dot **matrix);
 int		deal_key(int key, t_dot **matrix);
 void	set_param(t_dot *a, t_dot *b, t_dot *param);
 void	ft_error_and_exit(char *msg);
+void	handle_empty_or_null_line(char *line, int fd);
 void	ft_free_array(char *array[]);
 int		compare_sign(int a, int b);
 #endif

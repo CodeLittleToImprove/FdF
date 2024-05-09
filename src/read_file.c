@@ -74,6 +74,25 @@
 //	}
 //	free(number_matrix);
 //}
+
+int	count_lines_and_free(int fd)
+{
+	int		y;
+	char	*line;
+
+	y = 0;
+	line = get_next_line(fd);
+	if (line == NULL)
+		return (0);
+	while (line != NULL)
+	{
+		y++;
+		free(line);
+		line = get_next_line(fd);
+	}
+	return (y);
+}
+
 int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 {
 	char	**dots;
@@ -107,17 +126,13 @@ t_dot	**allocate_matrix(char *file_name)
 	if (fd <= 0)
 		ft_error_and_exit("file does not exist");
 	line = get_next_line(fd);
+	if (line == NULL || ft_strlen(line) == 1)
+		handle_empty_or_null_line(line, fd);
 	x = ft_count_words(line, ' ');
 	free(line);
-	y = 0;
-	line = get_next_line(fd);
-	while (line != NULL)
-	{
-		y++;
-		free(line);
-		line = get_next_line(fd);
-	}
-//	printf("x = %d y = %d \n", x, y);
+	y = count_lines_and_free(fd);
+
+	printf("x = %d y = %d \n", x, y);
 	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (++y + 1));
 	while (y > 0)
 		allocated_matrix[--y] = (t_dot *)malloc(sizeof(t_dot) * (x + 1));

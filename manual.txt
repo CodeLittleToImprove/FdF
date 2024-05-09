@@ -3,10 +3,5 @@ valgrind --leak-check=full --show-leak-kinds=all --gen-suppressions=all ./fdf 42
 valgrind --leak-check=full --gen-suppressions=all --show-leak-kinds=all ./fdf 42.fdf 2>&1 | tee valgrind_output.txt
 valgrind --leak-check=full --suppressions=my_suppressions.supp ./fdf 42.fdf
 
-==27717== LEAK SUMMARY:
-==27717==    definitely lost: 14,080 bytes in 11 blocks
-==27717==    indirectly lost: 0 bytes in 0 blocks
-==27717==      possibly lost: 0 bytes in 0 blocks
-==27717==    still reachable: 93,904 bytes in 104 blocks
-==27717==         suppressed: 0 bytes in 0 blocks
-==27717==
+compile get_next_line manually
+gcc -g -o test get_next_line.c get_next_line_utils.c -L../ -lftprintf
