@@ -35,7 +35,9 @@ int	main(int argc, char *argv[])
 	matrix = read_map_file(argv[1]);
 	set_default_values(&MATRIX_TOP_LEFT);
 	draw(matrix);
-	mlx_key_hook(MATRIX_TOP_LEFT.win_ptr, deal_key, matrix);
-	mlx_loop(MATRIX_TOP_LEFT.mlx_ptr);
+	window_and_key_setup(matrix);
+//	mlx_key_hook(MATRIX_TOP_LEFT.win_ptr, deal_key, matrix);
+//	mlx_hook(MATRIX_TOP_LEFT.win_ptr, CLOSE_X_BUTTON, 0, destroy_window_and_exit, matrix);
+//	mlx_loop(MATRIX_TOP_LEFT.mlx_ptr);
 }
 

@@ -27,9 +27,8 @@
 
 # define MATRIX_TOP_LEFT (matrix[0][0]) // probably not allowed
 
-/* Define keyboard code */
-# define ESCAPE 65307
 
+# define CLOSE_X_BUTTON 17
 typedef struct s_dot
 {
 	int			x;
@@ -87,9 +86,11 @@ int		calculate_color(int dot_a, int dot_b);
 void	isometric_int(int *x, int *y, int z);
 
 //key_handler.c
+void	window_and_key_setup(t_dot **matrix);
 int		valid_key(int key);
 void	navigate_and_zoom(int key, t_dot **matrix);
 int		deal_key(int key, t_dot **matrix);
+int	destroy_window_and_exit(t_dot **matrix);
 
 //ft_utils.c
 void	ft_error_and_exit(char *msg);
