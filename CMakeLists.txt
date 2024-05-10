@@ -19,7 +19,7 @@ add_executable(fdf
         src/main.c
         src/read_file.c
         src/draw.c
-        src/test_minilibx.c
+        src/draw_helper.c
         src/utils.c
         src/keys_handler.c
         src/set_param.c

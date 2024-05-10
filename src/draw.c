@@ -12,59 +12,6 @@
 
 #include "../lib/fdf.h"
 
-int	calculate_initial_error(int dx, int dy)
-{
-	int	err;
-	// Initialize the decision variable based on the comparison between dx and dy.
-	// The decision variable is used to decide when to increment the y-coordinate
-	// (in addition to the x-coordinate) to approximate a straight line on a pixel grid.
-
-	if (dx > dy)
-		// For lines more horizontal than vertical, the initial error is set to half of dx.
-		// This represents the point at which the accumulated error of drawing a straight line
-		// on the pixel grid justifies moving one pixel up or down (in the y-direction).
-
-		err = dx / 2;
-	else
-		// For lines more vertical than horizontal, or equally steep in both x and y directions,
-		// the initial error is set to half of dy, but negated.
-		// This effectively makes the algorithm more inclined to make an initial move in the y-direction,
-		// reflecting the steeper ascent/descent of the line.
-		err = -dy / 2;
-	return (err);
-}
-
-int	calculate_color(int dot_a, int dot_b)
-{
-	int	color;
-
-	// Default color white for lines
-	color = 0xFFFFFF;
-
-//	printf("dot_a: %d, dot_b: %d\n", dot_a, dot_b);
-	// Check if either a_z or b_z is non-zero // color red for z values
-	if (dot_a || dot_b)
-		color = 0xfc0345;
-
-	// Check if a_z is not equal to b_z // color cyan for outline of z
-	if (dot_a != dot_b)
-		color = 0x00FFFF;
-
-	return (color);
-}
-
-void	isometric_int(int *x, int *y, int z)
-{
-	int	original_x;
-	int	original_y;
-
-	original_x = *x;
-	original_y = *y;
-	// Approximate cos(30 degrees) ~ 0.866 (866/1000) and sin(30 degrees) ~ 0.5 (500/1000)
-	*x = ((original_x - original_y) * 866) / 1000;
-	*y = ((original_x + original_y) * 500) / 1000 - z;
-}
-
 void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 						t_BresenhamPara params)
 {
@@ -314,8 +261,6 @@ void	draw(t_dot **matrix)
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
 			prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
-
-
 	y++; // Move to the next row
 	}
 }

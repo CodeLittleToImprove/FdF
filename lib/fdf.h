@@ -25,17 +25,10 @@
 # include <math.h>
 # include <stdbool.h>
 
-# define MATRIX_TOP_LEFT matrix[0][0]
+# define MATRIX_TOP_LEFT (matrix[0][0]) // probably not allowed
 
 /* Define keyboard code */
 # define ESCAPE 65307
-//typedef struct	s_data {
-//	void	*img;
-//	char	*addr;
-//	int		bits_per_pixel;
-//	int		line_length;
-//	int		endian;
-//}				t_data;
 
 typedef struct s_dot
 {
@@ -65,20 +58,43 @@ typedef struct s_BresenhamPara // remember what the variable stands for
 	int	err;
 }	t_BresenhamPara;
 
+//read_file.c functions
 t_dot	**read_map_file(char *file_name);
 t_dot	**allocate_matrix(char *file_name);
+void	handle_empty_or_null_line(char *line, int fd);
 int		count_lines_and_free(int fd);
-void	isometric(int *x, int *y, int z);
-//void isometric(float *x, float *y, float z);
-//void	bresenham(float x, float y, float x1, float y1, t_dot *data);
-//void	bresenham(int x, int y, int x1, int y1, t_dot *data);
-void	isometric_int(int *x, int *y, int z);
-void	print_help(t_dot param);
+int		get_dots_from_line(char *line, t_dot **matrix_of_dots, int y);
+
+//main.c function
+void	set_default_values(t_dot *param);
+
+//draw.c functions
 void	draw(t_dot **matrix);
-int		deal_key(int key, t_dot **matrix);
+void	prepare_bresenham(t_dot a, t_dot b, t_dot *param);
+void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
+			t_BresenhamPara params);
+
+//help_menu.c function
+void	print_help(t_dot param);
+
+//set_param.c functions
+void	zoom(t_dot *a, t_dot *b, t_dot *param);
 void	set_param(t_dot *a, t_dot *b, t_dot *param);
+
+//draw_helper.c functions
+int		calculate_initial_error(int dx, int dy);
+int		calculate_color(int dot_a, int dot_b);
+void	isometric_int(int *x, int *y, int z);
+
+//key_handler.c
+int		valid_key(int key);
+void	navigate_and_zoom(int key, t_dot **matrix);
+int		deal_key(int key, t_dot **matrix);
+
+//ft_utils.c
 void	ft_error_and_exit(char *msg);
 void	handle_empty_or_null_line(char *line, int fd);
 void	ft_free_array(char *array[]);
 int		compare_sign(int a, int b);
+
 #endif

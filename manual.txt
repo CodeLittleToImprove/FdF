@@ -5,3 +5,6 @@ valgrind --leak-check=full --suppressions=my_suppressions.supp ./fdf 42.fdf
 
 compile get_next_line manually
 gcc -g -o test get_next_line.c get_next_line_utils.c -L../ -lftprintf
+
+get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
+printf("matrix_of_dots[%d][%d]: z = %d, x = %d, y = %d\n", y, x, matrix_of_dots[y][x].z, matrix_of_dots[y][x].x, matrix_of_dots[y][x].y);
