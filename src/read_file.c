@@ -84,7 +84,10 @@ t_dot	**allocate_matrix(char *file_name)
 	printf("x = %ld y = %ld \n", x, y);
 	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (y));
 	while (y > 0)
-		allocated_matrix[--y] = (t_dot *)malloc(sizeof(t_dot) * (x));
+	{
+		y--;
+		allocated_matrix[y] = (t_dot *)malloc(sizeof(t_dot) * (x));
+	}
 	return (allocated_matrix);
 }
 
@@ -101,7 +104,8 @@ t_dot	**read_map_file(char *file_name)
 	line = get_next_line(fd);
 	while (line != NULL)
 	{
-		get_dots_from_line(line, matrix_of_dots, y++);
+		get_dots_from_line(line, matrix_of_dots, y);
+		y++;
 		line = get_next_line(fd);
 	}
 	matrix_of_dots[y] = NULL;

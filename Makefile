@@ -31,7 +31,6 @@ LIBS = -Llib/libft -lft \
 # Compiler and compilation flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-debug: CFLAGS += -g -fsanitize=address
 
 # ANSI escape codes
 BLUE = \033[0;34m
@@ -50,7 +49,11 @@ $(NAME): $(OBJ)
 %.o: %.c
 	@$(CC) $(CFLAGS) -c $< -o $@
 
+debug: CFLAGS += -g -fsanitize=address
+debug: fclean all
+
 test: CFLAGS := -g #Only g flag for valgrind memoryleak test
+
 test: $(OBJ)
 	@make -C lib/libft
 	@make -C lib/ft_printf
@@ -76,6 +79,6 @@ run:
 	@make clean
 	@./$(NAME)
 
-debug: all
+
 
 .PHONY: all clean fclean re
