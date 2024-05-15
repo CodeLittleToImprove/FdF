@@ -26,17 +26,23 @@ void	handle_empty_or_null_line(char *line, int fd)
 	exit(1);
 }
 
-void	ft_free_array(char *array[])
+void	free_matrix(t_dot **matrix_of_dots)
 {
+	size_t	rows;
 	size_t	i;
 
+	rows = 0;
 	i = 0;
-	while (array[i])
+	if (matrix_of_dots == NULL)
+		return ;
+	while (matrix_of_dots[rows] != NULL)
+		rows++;
+	rows = rows - 1;
+	while (i < rows)
 	{
-		free(array[i]);
+		free(matrix_of_dots[i]);
 		i++;
 	}
-	free(array);
 }
 
 int	compare_sign(int a, int b)

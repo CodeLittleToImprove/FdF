@@ -51,17 +51,11 @@ void	navigate_and_zoom(int key, t_dot **matrix)
 	draw(matrix);
 }
 
-//void	destroy_window_and_exit(t_dot **matrix)
-//{
-//	mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr,
-//		MATRIX_TOP_LEFT.win_ptr);
-//	exit(0);
-//}
-
 int	destroy_window_and_exit(t_dot **matrix)
 {
 	mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr,
 		MATRIX_TOP_LEFT.win_ptr);
+	free_matrix(matrix);
 	exit(0);
 }
 
@@ -72,10 +66,6 @@ int	deal_key(int key, t_dot **matrix)
 		ft_printf("keycode number %d\n", key);
 		if (key == XK_Escape)
 		{
-//			mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr,
-//				MATRIX_TOP_LEFT.win_ptr);
-////		free(matrix);
-//			exit(0);
 			destroy_window_and_exit(matrix);
 		}
 		else if (key == XK_plus || key == XK_minus

@@ -96,7 +96,7 @@ int			destroy_window_and_exit(t_dot **matrix);
 //ft_utils.c
 void		ft_error_and_exit(char *msg);
 void		handle_empty_or_null_line(char *line, int fd);
-void		ft_free_array(char *array[]);
+void		free_matrix(t_dot **matrix_of_dots);
 int			compare_sign(int a, int b);
 
 #endif
