@@ -31,6 +31,7 @@ int	calculate_initial_error(int dx, int dy)
 		// This effectively makes the algorithm more inclined to make an initial move in the y-direction,
 		// reflecting the steeper ascent/descent of the line.
 		err = -dy / 2;
+//	printf("err: %d\n", err);
 	return (err);
 }
 
@@ -55,12 +56,18 @@ int	calculate_color(int dot_a, int dot_b)
 
 void	isometric_int(int *x, int *y, int z)
 {
-	int	original_x;
-	int	original_y;
+	int			original_x;
+	int			original_y;
+	int			cos_30_degree;
+	int			sin_30_degree;
+	int			divisor;
+
 
 	original_x = *x;
 	original_y = *y;
-	// Approximate cos(30 degrees) ~ 0.866 (866/1000) and sin(30 degrees) ~ 0.5 (500/1000)
-	*x = ((original_x - original_y) * 866) / 1000;
-	*y = ((original_x + original_y) * 500) / 1000 - z;
+	cos_30_degree = 866; // Approximate cos(30 degrees) ~ 0.866 (866/1000)
+	sin_30_degree = 500; // Approximate sin(30 degrees) ~ 0.5 (500/1000)
+	divisor = 1000;
+	*x = ((original_x - original_y) * cos_30_degree) / divisor;
+	*y = ((original_x + original_y) * sin_30_degree) / divisor - z;
 }

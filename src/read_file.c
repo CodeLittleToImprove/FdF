@@ -12,22 +12,43 @@
 
 #include "../lib/fdf.h"
 
-int	count_lines_and_free(int fd)
+size_t	count_values_in_line_and_free(char *file_name)
 {
-	int		y;
+	int		fd;
 	char	*line;
+	size_t	values_in_line;
 
-	y = 0;
+	fd = open(file_name, O_RDONLY, 0);
+	if (fd <= 0)
+		ft_error_and_exit("file does not exist or no permission");
+	line = get_next_line(fd);
+	if (line == NULL || ft_strlen(line) == 1)
+		handle_empty_or_null_line(line, fd);
+	values_in_line = ft_count_words(line, ' ');
+	free(line);
+	close(fd);
+	return (values_in_line);
+}
+
+size_t	count_lines_in_file_and_free(char *file_name)
+{
+	size_t		lines_in_file;
+	int			fd;
+	char		*line;
+
+	lines_in_file = 0;
+	fd = open(file_name, O_RDONLY, 0);
 	line = get_next_line(fd);
 	if (line == NULL)
 		return (0);
 	while (line != NULL)
 	{
-		y++;
+		lines_in_file++;
 		free(line);
 		line = get_next_line(fd);
 	}
-	return (y);
+	close(fd);
+	return (lines_in_file);
 }
 
 int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
@@ -55,28 +76,19 @@ t_dot	**allocate_matrix(char *file_name)
 {
 	t_dot	**allocated_matrix;
 	size_t	x;
-	int		y;
-	int		fd;
-	char	*line;
+	size_t	y;
 
-	fd = open(file_name, O_RDONLY, 0);
-	if (fd <= 0)
-		ft_error_and_exit("file does not exist or no permission");
-	line = get_next_line(fd);
-	if (line == NULL || ft_strlen(line) == 1)
-		handle_empty_or_null_line(line, fd);
-	x = ft_count_words(line, ' ');
-	free(line);
-	y = count_lines_and_free(fd);
-//	printf("x = %d y = %d \n", x, y);
-	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (++y));
+	x = count_values_in_line_and_free(file_name);
+	y = count_lines_in_file_and_free(file_name);
+
+	printf("x = %ld y = %ld \n", x, y);
+	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (y));
 	while (y > 0)
-		allocated_matrix[--y] = (t_dot *)malloc(sizeof(t_dot) * (++x));
-	close(fd);
+		allocated_matrix[--y] = (t_dot *)malloc(sizeof(t_dot) * (x));
 	return (allocated_matrix);
 }
 
-t_dot	**read_map_file(char *file_name) // find memory leak later
+t_dot	**read_map_file(char *file_name)
 {
 	t_dot	**matrix_of_dots;
 	int		y;

@@ -31,7 +31,7 @@ LIBS = -Llib/libft -lft \
 # Compiler and compilation flags
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
-debug: CFLAGS += -g
+debug: CFLAGS += -g -fsanitize=address
 
 # ANSI escape codes
 BLUE = \033[0;34m
