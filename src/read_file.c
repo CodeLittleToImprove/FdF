@@ -22,7 +22,7 @@ size_t	count_values_in_line_and_free(char *file_name)
 	if (fd <= 0)
 		ft_error_and_exit("file does not exist or no permission");
 	line = get_next_line(fd);
-	if (line == NULL || ft_strlen(line) == 1)
+	if (line == NULL)
 		handle_empty_or_null_line(line, fd);
 	values_in_line = ft_count_words(line, ' ');
 	free(line);
@@ -67,9 +67,30 @@ int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 		free(dots[x++]);
 	}
 	free(dots);
-	free(line);
 	matrix_of_dots[y][--x].is_last = 1;
 	return (x);
+}
+
+void print_matrix_of_dots(t_dot **matrix_of_dots)
+{
+	int	y;
+	int	x;
+
+	y = 0;
+	while (matrix_of_dots[y] != NULL)
+	{
+		x = 0;
+		while (1)
+		{
+			printf("matrix[%d][%d]: x=%d, y=%d, z=%d, is_last=%d\n",
+			y, x, matrix_of_dots[y][x].x, matrix_of_dots[y][x].y,
+				matrix_of_dots[y][x].z, matrix_of_dots[y][x].is_last);
+			if (matrix_of_dots[y][x].is_last)
+				break;
+		x++;
+		}
+		y++;
+	}
 }
 
 t_dot	**allocate_matrix(char *file_name)
@@ -81,7 +102,7 @@ t_dot	**allocate_matrix(char *file_name)
 	x = count_values_in_line_and_free(file_name);
 	y = count_lines_in_file_and_free(file_name);
 
-	printf("x = %ld y = %ld \n", x, y);
+	printf("from allocated matrix x = %ld y = %ld \n", x, y);
 	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (y));
 	while (y > 0)
 	{
@@ -97,18 +118,38 @@ t_dot	**read_map_file(char *file_name)
 	int		y;
 	int		fd;
 	char	*line;
+	char	*next_line;
 
 	matrix_of_dots = allocate_matrix(file_name);
 	fd = open(file_name, O_RDONLY, 0);
 	y = 0;
 	line = get_next_line(fd);
+	next_line = NULL;
+	int i = 0;
 	while (line != NULL)
 	{
+//		printf("loop = %d\n", i);
+		next_line = get_next_line(fd);
 		get_dots_from_line(line, matrix_of_dots, y);
+//		printf("after get dots from line call \n");
 		y++;
-		line = get_next_line(fd);
-	}
+//		printf("line is pre free= %s\n", line);
+		free(line);
+//		printf("after free \n");
+		line = next_line;
+//		printf("line is after free= %s\n", line);
+//        if (line != NULL)
+//		{ // Print the characters as ASCII int values
+//            for (char *c = line; *c != '\0'; c++) {
+//                printf("ascii symbol: %d ", *c);
+//            }
+//            printf("\n");
+//        }
+		i++;
+    }
+//    printf("after while\n");
 	matrix_of_dots[y] = NULL;
+    print_matrix_of_dots(matrix_of_dots);
 	close(fd);
 	return (matrix_of_dots);
 }
