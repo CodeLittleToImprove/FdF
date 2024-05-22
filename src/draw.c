@@ -24,7 +24,8 @@ void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 		printf("e2 error = %d\n",params.err);
 		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
 			calculate_color(a.z, b.z));
-
+		printf("One Pixel drawn\n");
+		printf("\n");
 		e2 = params.err;
 		// Update the error term and x-coordinate
 		if (e2 > -params.dx)
