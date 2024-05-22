@@ -32,7 +32,9 @@ void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 			printf("case e2 > -params.dx\n");
 			printf("dy = %d\n", params.dy);
 			params.err -= params.dy;
+			printf("param.err = %d\n", params.err);
 			a.x += params.sx;
+			printf("a.x = %d\n", a.x);
 		}
 		// Update the error term and y-coordinate
 		if (e2 < params.dy)
@@ -40,7 +42,9 @@ void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 			printf("case e2 < params.dy\n");
 			printf("dx = %d\n", params.dx);
 			params.err += params.dx;
+			printf("param.err = %d\n", params.err);
 			a.y += params.sy;
+			printf("a.y = %d\n", a.y);
 		}
 	}
 }
