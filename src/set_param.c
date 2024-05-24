@@ -40,14 +40,14 @@ void	set_param(t_dot *a, t_dot *b, t_dot *param)
 		isometric_int(&b->x, &b->y, b->z);
 	}
 	printf("After isometric convert:\n"); // z stays the same
-	printf("Point a: x = %d, y = %d\n", a->x, a->y, a->z);
-	printf("Point b: x = %d, y = %d\n", b->x, b->y, b->z);
+	printf("Point a: x = %d, y = %d\n", a->x, a->y);
+	printf("Point b: x = %d, y = %d\n", b->x, b->y);
 
 	a->x += param->shift_x;
 	a->y += param->shift_y;
 	b->x += param->shift_x;
 	b->y += param->shift_y;
 	printf("After shift convert:\n"); // z stays the same
-	printf("Point a: x = %d, y = %d\n", a->x, a->y, a->z);
-	printf("Point b: x = %d, y = %d\n", b->x, b->y, b->z);
+	printf("Point a: x = %d, y = %d\n", a->x, a->y);
+	printf("Point b: x = %d, y = %d\n", b->x, b->y);
 }

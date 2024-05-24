@@ -21,31 +21,34 @@ void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 	{
 		printf("a.x = %d a.y = %d \n", a.x, a.y);
 		printf("b.x = %d b.y = %d \n", b.x, b.y);
-		printf("e2 error = %d\n",params.err);
+//		printf("e2 error = %d\n",params.err);
 		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
 			calculate_color(a.z, b.z));
-		printf("One Pixel drawn\n");
+		printf("One Pixel done\n");
 		printf("\n");
 		e2 = params.err;
 		// Update the error term and x-coordinate
 		if (e2 > -params.dx)
 		{
-			printf("case e2 > -params.dx\n");
-			printf("dy = %d\n", params.dy);
+//			printf("case1 :e2 > -params.dx\n");
+//			printf("dy = %d\n", params.dy);
 			params.err -= params.dy;
-			printf("param.err = %d\n", params.err);
+//			printf("param.err case1 = %d\n", params.err);
+//			printf("sx = %d\n", params.sx);
 			a.x += params.sx;
-			printf("a.x = %d\n", a.x);
+//			printf("a.x after addition = %d\n", a.x);
 		}
 		// Update the error term and y-coordinate
 		if (e2 < params.dy)
 		{
-			printf("case e2 < params.dy\n");
-			printf("dx = %d\n", params.dx);
+//			printf("\n");
+//			printf("case2 :e2 < params.dy\n");
+//			printf("dx = %d\n", params.dx);
 			params.err += params.dx;
-			printf("param.err = %d\n", params.err);
+//			printf("param.err case2 = %d\n", params.err);
+//			printf("sy = %d\n", params.sy);
 			a.y += params.sy;
-			printf("a.y = %d\n", a.y);
+//			printf("a.y after addition = %d\n", a.y);
 		}
 	}
 }
@@ -58,12 +61,16 @@ void	prepare_bresenham(t_dot a, t_dot b, t_dot *param)
 	// Convert to isometric coordinates before anything else
 //	isometric_int(&a.x, &a.y, a.z);
 //	isometric_int(&b.x, &b.y, b.z);
-	params.dx = abs(b.x - a.x);
-	params.sx = compare_sign(a.x, b.x);
-	params.dy = abs(b.y - a.y);
-	params.sy = compare_sign(a.y, b.y);
+    params.dx = abs(b.x - a.x);
+//    printf("params.dx = %d\n", params.dx);
+    params.sx = compare_sign(a.x, b.x);
+//    printf("params.sx = %d\n", params.sx);
+    params.dy = abs(b.y - a.y);
+//    printf("params.dy = %d\n", params.dy);
+    params.sy = compare_sign(a.y, b.y);
+//    printf("params.sy = %d\n", params.sy);
 	params.err = calculate_initial_error(params.dx, params.dy);
-	printf("initial error err= %d\n", params.err);
+//	printf("initial error err= %d\n", params.err);
 	// Call the separate function for the Bresenham algorithm
 	perform_bresenham(a, b, param, params);
 }
@@ -78,7 +85,6 @@ void	draw(t_dot **matrix)
 //    printf("is last %d\n", matrix[0][0].is_last);
 	while (matrix[y] != NULL)
 	{
-
 		x = 0;
 		while (!matrix[y][x].is_last)
 		{
@@ -87,27 +93,27 @@ void	draw(t_dot **matrix)
 			{
 				printf("draw_line y\n");
 				prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
-				printf("finished_line y\n");
+				printf("finished_line y\n\n");
 			}
-
 
 			// Draw line to the point directly to the right (if it exists)
 			printf("draw_line x\n");
 			prepare_bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
-			printf("finished_line x\n");
+			printf("finished_line x\n\n");
 			x++;
 		}
 
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
 		{
-			printf("last point\n");
+			printf("draw_last point\n");
 			prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
+			printf("finished_last point\n\n");
 		}
 
 		y++; // Move to the next row
 	}
-	printf("done draw\n");
+	printf("done draw\n\n");
 }
 
 //void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version which is more readable than the norminette comfort
