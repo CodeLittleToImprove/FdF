@@ -53,14 +53,17 @@ size_t	count_lines_in_file_and_free(char *file_name)
 
 int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 {
-	char	**dots;
-	int		x;
+	char		**dots;
+	int			x;
+	int			z_value;
 
 	dots = ft_split(line, ' ');
 	x = 0;
+	z_value = 0;
 	while (dots[x] != NULL)
 	{
-		matrix_of_dots[y][x].z = ft_atoi(dots[x]);
+		z_value = safe_str_to_int(dots[x]);
+		matrix_of_dots[y][x].z = z_value;
 		matrix_of_dots[y][x].x = x;
 		matrix_of_dots[y][x].y = y;
 		matrix_of_dots[y][x].is_last = 0;

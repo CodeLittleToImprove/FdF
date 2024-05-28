@@ -98,5 +98,5 @@ void		ft_error_and_exit(char *msg);
 void		handle_empty_or_null_line(char *line, int fd);
 void		free_matrix(t_dot **matrix_of_dots);
 int			compare_sign(int a, int b);
-
+int			safe_str_to_int(const char *nbr_str);
 #endif

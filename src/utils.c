@@ -52,3 +52,15 @@ int	compare_sign(int a, int b)
 	else
 		return (-1);
 }
+
+int	safe_str_to_int(const char *nbr_str)
+{
+	long long	num;
+
+	num = ft_atoll(nbr_str);
+	if (num > INT_MAX)
+		return (INT_MAX);
+	else if (num < INT_MIN)
+		return (INT_MIN);
+	return ((int)num);
+}
