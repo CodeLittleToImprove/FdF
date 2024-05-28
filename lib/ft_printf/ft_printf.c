@@ -50,12 +50,12 @@ int	ft_printf(const char *format, ...)
 		if (format[current_index] == '%'
 			&& ft_strchr("cspdiuxX%", format[current_index + 1]) != 0)
 		{
-		c_printed += flag_check(format[current_index + 1], arg_ptr);
-		current_index++;
+			c_printed += flag_check(format[current_index + 1], arg_ptr);
+			current_index++;
 		}
 		else
 			c_printed += ft_putchar(format[current_index]);
-	current_index++;
+		current_index++;
 	}
 	va_end(arg_ptr);
 	return (c_printed);
