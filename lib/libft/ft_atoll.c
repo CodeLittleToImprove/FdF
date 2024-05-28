@@ -28,7 +28,7 @@ long long	ft_atoll(const char *nbr_str)
 	while (*nbr_str >= '0' && *nbr_str <= '9')
 	{
 		if ((nbr > LLONG_MAX / 10) || (nbr == LLONG_MAX / 10
-									   && (*nbr_str - '0') > LLONG_MAX % 10))
+				&& (*nbr_str - '0') > LLONG_MAX % 10))
 		{
 			if (sign == -1)
 				return (LLONG_MIN);

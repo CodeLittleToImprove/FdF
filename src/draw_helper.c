@@ -37,19 +37,24 @@ int	calculate_initial_error(int dx, int dy)
 
 int	calculate_color(int dot_a, int dot_b)
 {
+	int	white_hex;
+	int	red_hex;
+	int	cyan_hex;
 	int	color;
 
+	white_hex = 0xFFFFFF;
+	red_hex = 0xfc0345;
+	cyan_hex = 0x00FFFF;
 	// Default color white for lines
-	color = 0xFFFFFF;
+	color = white_hex;
 
-//	printf("dot_a: %d, dot_b: %d\n", dot_a, dot_b);
 	// Check if either a_z or b_z is non-zero // color red for z values
-	if (dot_a || dot_b)
-		color = 0xfc0345;
+	if (dot_a != 0 || dot_b != 0)
+		color = red_hex;
 
 	// Check if a_z is not equal to b_z // color cyan for outline of z
 	if (dot_a != dot_b)
-		color = 0x00FFFF;
+		color = cyan_hex;
 
 	return (color);
 }
