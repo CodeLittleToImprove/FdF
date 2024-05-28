@@ -19,13 +19,13 @@ void	perform_bresenham(t_dot a, t_dot b, t_dot *param,
 	// Continue iterating until the endpoint is reached
 	while (a.x != b.x || a.y != b.y)
 	{
-		printf("a.x = %d a.y = %d \n", a.x, a.y);
-		printf("b.x = %d b.y = %d \n", b.x, b.y);
+//		printf("a.x = %d a.y = %d \n", a.x, a.y);
+//		printf("b.x = %d b.y = %d \n", b.x, b.y);
 //		printf("e2 error = %d\n",params.err);
 		mlx_pixel_put(param->mlx_ptr, param->win_ptr, a.x, a.y,
 			calculate_color(a.z, b.z));
-		printf("One Pixel done\n");
-		printf("\n");
+//		printf("One Pixel done\n");
+//		printf("\n");
 		e2 = params.err;
 		// Update the error term and x-coordinate
 		if (e2 > -params.dx)
@@ -61,13 +61,13 @@ void	prepare_bresenham(t_dot a, t_dot b, t_dot *param)
 	// Convert to isometric coordinates before anything else
 //	isometric_int(&a.x, &a.y, a.z);
 //	isometric_int(&b.x, &b.y, b.z);
-    params.dx = abs(b.x - a.x);
+	params.dx = abs(b.x - a.x);
 //    printf("params.dx = %d\n", params.dx);
-    params.sx = compare_sign(a.x, b.x);
+	params.sx = compare_sign(a.x, b.x);
 //    printf("params.sx = %d\n", params.sx);
-    params.dy = abs(b.y - a.y);
+	params.dy = abs(b.y - a.y);
 //    printf("params.dy = %d\n", params.dy);
-    params.sy = compare_sign(a.y, b.y);
+	params.sy = compare_sign(a.y, b.y);
 //    printf("params.sy = %d\n", params.sy);
 	params.err = calculate_initial_error(params.dx, params.dy);
 //	printf("initial error err= %d\n", params.err);
@@ -91,29 +91,28 @@ void	draw(t_dot **matrix)
 			// Draw line to the point directly below (if it exists)
 			if (matrix[y + 1])
 			{
-				printf("draw_line y\n");
+//				printf("draw_line y\n");
 				prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
-				printf("finished_line y\n\n");
+//				printf("finished_line y\n\n");
 			}
 
 			// Draw line to the point directly to the right (if it exists)
-			printf("draw_line x\n");
+//			printf("draw_line x\n");
 			prepare_bresenham(matrix[y][x], matrix[y][x + 1], &MATRIX_TOP_LEFT);
-			printf("finished_line x\n\n");
+//			printf("finished_line x\n\n");
 			x++;
 		}
 
 		// Draw line to the last point in the row to combine end of row with first
 		if (matrix[y + 1])
 		{
-			printf("draw_last point\n");
+//			printf("draw_last point\n");
 			prepare_bresenham(matrix[y][x], matrix[y + 1][x], &MATRIX_TOP_LEFT);
-			printf("finished_last point\n\n");
+//			printf("finished_last point\n\n");
 		}
-
 		y++; // Move to the next row
 	}
-	printf("done draw\n\n");
+//	printf("done draw\n\n");
 }
 
 //void	bresenham(t_dot a, t_dot b, t_dot *param) //do keybindings // short version which is more readable than the norminette comfort

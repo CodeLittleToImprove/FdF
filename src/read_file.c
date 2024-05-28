@@ -105,7 +105,7 @@ t_dot	**allocate_matrix(char *file_name)
 	x = count_values_in_line_and_free(file_name);
 	y = count_lines_in_file_and_free(file_name);
 
-	printf("from allocated matrix x = %ld y = %ld \n", x, y);
+//	printf("from allocated matrix x = %ld y = %ld \n", x, y);
 	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (y));
 	while (y > 0)
 	{
@@ -128,31 +128,16 @@ t_dot	**read_map_file(char *file_name)
 	y = 0;
 	line = get_next_line(fd);
 	next_line = NULL;
-	int i = 0;
 	while (line != NULL)
 	{
-//		printf("loop = %d\n", i);
 		next_line = get_next_line(fd);
 		get_dots_from_line(line, matrix_of_dots, y);
-//		printf("after get dots from line call \n");
 		y++;
-//		printf("line is pre free= %s\n", line);
 		free(line);
-//		printf("after free \n");
 		line = next_line;
-//		printf("line is after free= %s\n", line);
-//        if (line != NULL)
-//		{ // Print the characters as ASCII int values
-//            for (char *c = line; *c != '\0'; c++) {
-//                printf("ascii symbol: %d ", *c);
-//            }
-//            printf("\n");
-//        }
-		i++;
-    }
-//    printf("after while\n");
+	}
 	matrix_of_dots[y] = NULL;
-    print_matrix_of_dots(matrix_of_dots);
+//	print_matrix_of_dots(matrix_of_dots);
 	close(fd);
 	return (matrix_of_dots);
 }
