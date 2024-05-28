@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "../lib/fdf.h"
-
+//github version
 void	set_default_values(t_dot *param)
 {
 	param->scale = 20; // zoom in and out
