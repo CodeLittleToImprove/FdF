@@ -8,3 +8,25 @@ gcc -g -o test get_next_line.c get_next_line_utils.c -L../ -lftprintf
 
 get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 printf("matrix_of_dots[%d][%d]: z = %d, x = %d, y = %d\n", y, x, matrix_of_dots[y][x].z, matrix_of_dots[y][x].x, matrix_of_dots[y][x].y);
+
+//void	print_matrix_of_dots(t_dot **matrix_of_dots)
+//{
+//	int	y;
+//	int	x;
+//
+//	y = 0;
+//	while (matrix_of_dots[y] != NULL)
+//	{
+//		x = 0;
+//		while (1)
+//		{
+//			printf("matrix[%d][%d]: x=%d, y=%d, z=%d, is_last=%d\n",
+//				y, x, matrix_of_dots[y][x].x, matrix_of_dots[y][x].y,
+//				matrix_of_dots[y][x].z, matrix_of_dots[y][x].is_last);
+//			if (matrix_of_dots[y][x].is_last)
+//				break ;
+//			x++;
+//		}
+//		y++;
+//	}
+//}
