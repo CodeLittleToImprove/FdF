@@ -51,7 +51,8 @@ SRC = ft_memset.c			\
 		ft_min.c		\
 		ft_fabs.c		\
 		ft_abs.c \
-		ft_atoll.c
+		ft_atoll.c \
+		ft_compare_sign.c
 
 BSRC = ft_lstnew.c			\
 		ft_lstadd_front.c	\

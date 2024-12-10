@@ -16,6 +16,7 @@ NAME = fdf
 # Directories and source files
 SRC = src/main.c \
 src/read_file.c \
+src/read_file_utils.c \
 src/draw.c \
 src/draw_helper.c \
 src/utils.c \

@@ -18,49 +18,70 @@ void	ft_error_and_exit(char *msg)
 	exit(1);
 }
 
-void	handle_empty_or_null_line(char *line, int fd)
+void	free_mlx_stuff(t_data *data)
 {
-	if (line != NULL)
-		free(line);
-	close(fd);
-	exit(1);
-}
-
-void	free_matrix(t_dot **matrix_of_dots)
-{
-	size_t	rows;
-	size_t	i;
-
-	rows = 0;
-	i = 0;
-	if (matrix_of_dots == NULL)
-		return ;
-	while (matrix_of_dots[rows] != NULL)
-		rows++;
-	rows = rows - 1;
-	while (i < rows)
+	if (data->img.img_ptr)
 	{
-		free(matrix_of_dots[i]);
-		i++;
+		mlx_destroy_image(data->mlx_ptr, data->img.img_ptr);
+		data->img.img_ptr = NULL;
 	}
+	if (data->win_ptr != NULL)
+	{
+		mlx_destroy_window(data->mlx_ptr, data->win_ptr);
+		data->win_ptr = NULL;
+	}
+	if (data->mlx_ptr != NULL)
+	{
+		mlx_destroy_display(data->mlx_ptr);
+		free(data->mlx_ptr);
+		data->mlx_ptr = NULL;
+	}
+	free_matrix(data);
 }
 
-int	compare_sign(int a, int b)
+void	free_matrix(t_data *data) // new
 {
-	if (a < b)
-		return (1);
-	else
-		return (-1);
+	size_t	total_rows;
+	size_t	row_index;
+
+	total_rows = 0;
+	row_index = 0;
+	if (data->matrix == NULL)
+		return ;
+	while (data->matrix [total_rows] != NULL)
+		total_rows++;
+	total_rows--;
+	while (row_index <= total_rows)
+	{
+		free(data->matrix [row_index]);
+		row_index++;
+	}
+	free(data->matrix);
 }
 
-int	safe_str_to_int(const char *nbr_str)
+static void print_dot(t_dot dot)
 {
-	long long	num;
+	printf("Dot:\n");
+	printf("  x: %d\n", dot.x);
+	printf("  y: %d\n", dot.y);
+	printf("  z: %d\n", dot.z);
+	printf("  is_last: %d\n", dot.is_last);
+}
 
-	num = ft_atoll(nbr_str);
-	if (num > INT_MAX)
-		return (INT_MAX);
-	else if (num < INT_MIN)
-		return (INT_MIN);
-	return ((int)num);
+void	print_matrix(t_data *data)
+{
+	int y = 0;
+	while (data->matrix[y] != NULL)
+	{
+		int x = 0;
+		while (!data->matrix[y][x].is_last)
+		{
+			printf("Dot at [%d][%d]:\n", y, x);
+			print_dot(data->matrix[y][x]);
+			x++;
+		}
+		printf("Dot at [%d][%d]:\n", y, x);
+		print_dot(data->matrix[y][x]);
+		y++;
+	}
 }

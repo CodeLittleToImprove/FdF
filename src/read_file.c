@@ -70,30 +70,9 @@ int	get_dots_from_line(char *line, t_dot **matrix_of_dots, int y)
 		free(dots[x++]);
 	}
 	free(dots);
-	matrix_of_dots[y][--x].is_last = 1;
+	if (x > 0)
+		matrix_of_dots[y][--x].is_last = 1;
 	return (x);
-}
-
-void print_matrix_of_dots(t_dot **matrix_of_dots)
-{
-	int	y;
-	int	x;
-
-	y = 0;
-	while (matrix_of_dots[y] != NULL)
-	{
-		x = 0;
-		while (1)
-		{
-			printf("matrix[%d][%d]: x=%d, y=%d, z=%d, is_last=%d\n",
-			y, x, matrix_of_dots[y][x].x, matrix_of_dots[y][x].y,
-				matrix_of_dots[y][x].z, matrix_of_dots[y][x].is_last);
-			if (matrix_of_dots[y][x].is_last)
-				break;
-		x++;
-		}
-		y++;
-	}
 }
 
 t_dot	**allocate_matrix(char *file_name)
@@ -104,26 +83,27 @@ t_dot	**allocate_matrix(char *file_name)
 
 	x = count_values_in_line_and_free(file_name);
 	y = count_lines_in_file_and_free(file_name);
-
-//	printf("from allocated matrix x = %ld y = %ld \n", x, y);
-	allocated_matrix = (t_dot **)malloc(sizeof(t_dot *) * (y));
+	allocated_matrix = (t_dot **) ft_calloc(sizeof(t_dot *), (y + 1));
+	if (!allocated_matrix)
+		ft_error_and_exit("Memory allocation failed");
 	while (y > 0)
 	{
+		allocated_matrix[y - 1] = (t_dot *) ft_calloc(sizeof(t_dot), x);
 		y--;
-		allocated_matrix[y] = (t_dot *)malloc(sizeof(t_dot) * (x));
 	}
 	return (allocated_matrix);
 }
 
-t_dot	**read_map_file(char *file_name)
+void	read_map_file(char *file_name, t_data *data)
 {
-	t_dot	**matrix_of_dots;
 	int		y;
 	int		fd;
 	char	*line;
 	char	*next_line;
 
-	matrix_of_dots = allocate_matrix(file_name);
+	if (!is_fdf_file(file_name))
+		ft_error_and_exit(ERR_INVALID_FILE_EXT);
+	data->matrix = allocate_matrix(file_name);
 	fd = open(file_name, O_RDONLY, 0);
 	y = 0;
 	line = get_next_line(fd);
@@ -131,13 +111,11 @@ t_dot	**read_map_file(char *file_name)
 	while (line != NULL)
 	{
 		next_line = get_next_line(fd);
-		get_dots_from_line(line, matrix_of_dots, y);
+		get_dots_from_line(line, data->matrix, y);
 		y++;
 		free(line);
 		line = next_line;
 	}
-	matrix_of_dots[y] = NULL;
-//	print_matrix_of_dots(matrix_of_dots);
+	data->matrix[y] = NULL;
 	close(fd);
-	return (matrix_of_dots);
 }

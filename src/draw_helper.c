@@ -31,7 +31,6 @@ int	calculate_initial_error(int dx, int dy)
 		// This effectively makes the algorithm more inclined to make an initial move in the y-direction,
 		// reflecting the steeper ascent/descent of the line.
 		err = -dy / 2;
-//	printf("err: %d\n", err);
 	return (err);
 }
 
@@ -55,7 +54,6 @@ int	calculate_color(int dot_a, int dot_b)
 	// Check if a_z is not equal to b_z // color cyan for outline of z
 	if (dot_a != dot_b)
 		color = cyan_hex;
-
 	return (color);
 }
 
@@ -66,7 +64,6 @@ void	isometric_int(int *x, int *y, int z)
 	int			cos_30_degree;
 	int			sin_30_degree;
 	int			divisor;
-
 
 	original_x = *x;
 	original_y = *y;

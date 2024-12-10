@@ -1,4 +1,4 @@
-valgrind --leak-check=full --show-leak-kinds=all ./fdf 42.fdf
+valgrind --leak-check=full --show-leak-kinds=all ./fdf maps/42.fdf
 valgrind --leak-check=full --show-leak-kinds=all --gen-suppressions=all ./fdf 42.fdf
 valgrind --leak-check=full --gen-suppressions=all --show-leak-kinds=all ./fdf 42.fdf 2>&1 | tee valgrind_output.txt
 valgrind --leak-check=full --suppressions=my_suppressions.supp ./fdf 42.fdf

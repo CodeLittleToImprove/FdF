@@ -13,12 +13,12 @@
 #include "../lib/fdf.h"
 #include <X11/keysym.h>
 
-void	window_and_key_setup(t_dot **matrix)
+void	window_and_key_setup(t_data *data)
 {
-	mlx_key_hook(MATRIX_TOP_LEFT.win_ptr, deal_key, matrix);
-	mlx_hook(MATRIX_TOP_LEFT.win_ptr, CLOSE_X_BUTTON, 0,
-		destroy_window_and_exit, matrix);
-	mlx_loop(MATRIX_TOP_LEFT.mlx_ptr);
+	mlx_key_hook(data->win_ptr, deal_key, (void *)data);
+	mlx_hook(data->win_ptr, CLOSE_X_BUTTON, 0,
+		destroy_window_and_exit, data);
+	mlx_loop(data->mlx_ptr);
 }
 
 int	valid_key(int key)
@@ -31,59 +31,46 @@ int	valid_key(int key)
 		|| key == XK_Escape);
 }
 
-void	navigate_and_zoom(int key, t_dot **matrix)
+void	navigate_and_zoom(int key, t_data *data)
 {
-	mlx_clear_window(MATRIX_TOP_LEFT.mlx_ptr, MATRIX_TOP_LEFT.win_ptr);
 	if (key == XK_plus || key == XK_KP_Add)
-		MATRIX_TOP_LEFT.scale += 5;
+		data->scale += 5;
 	else if (key == XK_minus || key == XK_KP_Subtract)
-		MATRIX_TOP_LEFT.scale -= 5;
+		data->scale -= 5;
 	else if (key == XK_Up)
-		MATRIX_TOP_LEFT.shift_y -= 10;
+		data->shift_y -= 10;
 	else if (key == XK_Down)
-		MATRIX_TOP_LEFT.shift_y += 10;
+		data->shift_y += 10;
 	else if (key == XK_Left)
-		MATRIX_TOP_LEFT.shift_x -= 10;
+		data->shift_x -= 10;
 	else if (key == XK_Right)
-		MATRIX_TOP_LEFT.shift_x += 10;
+		data->shift_x += 10;
 	else if (key == XK_i)
-		MATRIX_TOP_LEFT.isometric_on = !MATRIX_TOP_LEFT.isometric_on;
-	draw(matrix);
+		data->isometric_on = !data->isometric_on;
+	clear_image(data, BLACK);
+	draw(data);
 }
 
-int	destroy_window_and_exit(t_dot **matrix)
+int	destroy_window_and_exit(t_data *data)
 {
-	mlx_destroy_window(MATRIX_TOP_LEFT.mlx_ptr,
-		MATRIX_TOP_LEFT.win_ptr);
-	free_matrix(matrix);
+	free_mlx_stuff(data);
 	exit(0);
 }
 
-int	deal_key(int key, t_dot **matrix)
+int	deal_key(int key, t_data *data)
 {
 	if (valid_key(key))
 	{
-		ft_printf("keycode number %d\n", key);
 		if (key == XK_Escape)
-		{
-			destroy_window_and_exit(matrix);
-		}
+			destroy_window_and_exit(data);
 		else if (key == XK_plus || key == XK_minus
 			|| key == XK_KP_Add || key == XK_KP_Subtract
 			|| key == XK_Left || key == XK_Right
 			|| key == XK_Down || key == XK_Up
 			|| key == XK_i)
-			navigate_and_zoom(key, matrix);
+			navigate_and_zoom(key, data);
 	}
 	else
 		ft_printf("not valid key\n");
 	return (0);
 }
-
-
-
-//int	deal_key(int key, t_dot **matrix) working version
-//{
-//	ft_printf("%d\n", key);
-//	return (0);
-//}

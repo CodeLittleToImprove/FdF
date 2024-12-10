@@ -28,6 +28,7 @@ int			ft_atoi(const char *nptr);
 long long	ft_atoll(const char *nptr);
 void		*ft_bzero(void *s, size_t n);
 char		**ft_split(char const *s, char c);
+int			ft_compare_sign(int a, int b);
 size_t		ft_count_words(char const *s, char c);
 void		*ft_calloc(size_t count, size_t size);
 float		ft_fabs(float i);
