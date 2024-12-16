@@ -29,3 +29,11 @@ add_executable(fdf
 
 # Link the executable with the libft, mlx_linux, X11, and Xext libraries
 target_link_libraries(fdf PRIVATE libft ft_printf mlx_linux -lX11 -lXext m)
+
+# Second executable (mlx_only_exec)
+add_executable(mlx_test
+        src/test_minilibx.c
+)
+
+# Link the second executable with mlx_linux and X11 libraries
+target_link_libraries(mlx_test PRIVATE mlx_linux -lX11 -lXext m)
